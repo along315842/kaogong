@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- ==========================================
+     成语查询页面
+     作者: 爱编程
+     版本: 1.0
+     说明: 提供成语查询功能,支持搜索和详情查看
+     ========================================== -->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成语查询 - 公考知识分享平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- 页面专属样式 -->
+    <style>
+        /* 搜索区域样式 */
+        .search-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        
+        /* 搜索框容器 */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* 搜索提示文字 */
+        .search-container h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        /* 搜索框 */
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        
+        /* 搜索结果统计 */
+        .result-stats {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        /* 成语列表项 */
+        .chengyu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .chengyu-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left-color: #764ba2;
+        }
+        
+        /* 成语标题 */
+        .chengyu-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        /* 拼音 */
+        .chengyu-pinyin {
+            color: #4a90e2;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        /* 解释 */
+        .chengyu-meaning {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        /* 例句 */
+        .chengyu-example {
+            color: #999;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        /* 分类标签 */
+        .category-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .category-tag {
+            padding: 8px 20px;
+            background: #e8f4fd;
+            color: #4a90e2;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .category-tag:hover,
+        .category-tag.active {
+            background: #4a90e2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo" onclick="goHome()" style="cursor: pointer;">
+                📚 公考知识库
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="chengyu.html">成语查询</a>
+                <a href="gaopin.html">高频词语</a>
+                <a href="ziliao.html">资料下载</a>
+            </div>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+        <!-- 搜索区域 -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-container">
+                    <h2>📚 成语查询</h2>
+                    <!-- oninput事件: 输入时实时搜索 -->
+                    <input type="text" id="searchInput" placeholder="输入成语、拼音或解释进行搜索..." 
+                           oninput="handleSearch(this.value)">
+                </div>
+            </div>
+        </section>
+
+        <!-- 结果统计 -->
+        <div class="container">
+            <div class="result-stats">
+                <p id="resultCount">共收录 <strong>20</strong> 个成语</p>
+            </div>
+            
+            <!-- 成语列表容器 - JavaScript会在这里填充内容 -->
+            <div id="chengyuList">
+                <div class="loading">正在加载成语数据...</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="chengyu.html"><span>📚</span><span>成语</span></a></li>
+            <li><a href="gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script src="../js/main.js"></script>
+    
+    <!-- 页面专属JavaScript -->
+    <script>
+        /**
+         * 搜索处理函数
+         * @param {string} keyword - 搜索关键词
+         * 
+         * 这个函数会在用户输入时自动调用
+         * 调用JavaScript中的searchChengyu函数进行搜索
+         */
+        function handleSearch(keyword) {
+            // 调用main.js中的搜索函数
+            const results = searchChengyu(keyword);
+            
+            // 更新结果统计
+            document.getElementById('resultCount').innerHTML = 
+                `找到 <strong>${results.length}</strong> 个成语`;
+            
+            // 重新渲染列表
+            const container = document.getElementById('chengyuList');
+            renderChengyuList(results, container);
+        }
+    </script>
+</body>
+</html>

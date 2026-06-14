@@ -1,0 +1,624 @@
+/* ==========================================
+   公考知识分享平台 - 主样式文件
+   作者: 爱编程
+   版本: 1.0
+   说明: 所有页面共用的CSS样式
+   ========================================== */
+
+/* ------------------------------------------
+   1. CSS变量定义 - 统一管理颜色和字体
+   ------------------------------------------ */
+:root {
+    /* 主色调 - 蓝色系，代表专业和信任 */
+    --primary-color: #4a90e2;
+    --primary-dark: #357abd;
+    --primary-light: #7eb3f3;
+    
+    /* 辅助色 - 渐变效果 */
+    --gradient-start: #667eea;
+    --gradient-end: #764ba2;
+    
+    /* 背景色 */
+    --bg-color: #f5f7fa;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --text-muted: #999999;
+    
+    /* 边框和阴影 */
+    --border-color: #e0e6ed;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    
+    /* 间距 */
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    
+    /* 圆角 */
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+}
+
+/* ------------------------------------------
+   2. 基础样式重置
+   ------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none; /* 移除链接下划线 */
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+ul, ol {
+    list-style: none; /* 移除列表默认样式 */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
+
+/* ------------------------------------------
+   3. 导航栏样式
+   ------------------------------------------ */
+.navbar {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--white);
+    padding: 15px 0;
+    position: fixed; /* 固定在顶部 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* 确保在其他元素之上 */
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; /* 左右分布 */
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* 导航链接之间的间距 */
+}
+
+.nav-links a {
+    color: var(--white);
+    font-size: 16px;
+    padding: 8px 0;
+    position: relative;
+}
+
+/* 导航链接的下划线动画效果 */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 移动端菜单按钮（隐藏） */
+.menu-toggle {
+    display: none;
+}
+
+/* ------------------------------------------
+   4. 容器和通用布局
+   ------------------------------------------ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    padding-top: 100px; /* 留出导航栏的空间 */
+    padding-bottom: 60px;
+    min-height: calc(100vh - 80px);
+}
+
+/* 页面标题 */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    color: var(--text-light);
+    font-size: 18px;
+}
+
+/* ------------------------------------------
+   5. 卡片组件样式
+   ------------------------------------------ */
+.card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* 鼠标悬停时轻微上移 */
+    box-shadow: var(--shadow-hover);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+/* 功能卡片 - 用于首页功能展示 */
+.feature-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-card .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ------------------------------------------
+   6. 按钮样式
+   ------------------------------------------ */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--white);
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    color: var(--white);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-sm {
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* ------------------------------------------
+   7. 表单样式
+   ------------------------------------------ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    outline: none;
+}
+
+/* 搜索框特殊样式 */
+.search-box {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+.search-box button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-box button:hover {
+    background: var(--primary-dark);
+}
+
+/* ------------------------------------------
+   8. 列表样式
+   ------------------------------------------ */
+.list-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.list-item:hover {
+    box-shadow: var(--shadow);
+    transform: translateX(5px);
+}
+
+.list-item h4 {
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.list-item p {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.list-item .meta {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.list-item .tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #e8f4fd;
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+/* ------------------------------------------
+   9. 模态框（弹窗）样式
+   ------------------------------------------ */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-dark);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ------------------------------------------
+   10. 底部导航栏（移动端）
+   ------------------------------------------ */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.bottom-nav li {
+    text-align: center;
+    font-size: 12px;
+}
+
+.bottom-nav li i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* ------------------------------------------
+   11. 页脚样式
+   ------------------------------------------ */
+.footer {
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.footer-section p, .footer-section a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 2;
+    display: block;
+}
+
+.footer-section a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+/* ------------------------------------------
+   12. 响应式设计 - 适配不同屏幕尺寸
+   ------------------------------------------ */
+
+/* 平板设备 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* 隐藏顶部导航 */
+    }
+    
+    .menu-toggle {
+        display: block; /* 显示菜单按钮 */
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    .bottom-nav {
+        display: block; /* 显示底部导航 */
+    }
+    
+    .main-content {
+        padding-bottom: 80px; /* 留出底部导航空间 */
+    }
+    
+    .page-header h1 {
+        font-size: 28px;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .feature-card, .card {
+        padding: 20px;
+    }
+    
+    .btn {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+}
+
+/* ------------------------------------------
+   13. 辅助类
+   ------------------------------------------ */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: 10px; }
+.mt-2 { margin-top: 20px; }
+.mt-3 { margin-top: 40px; }
+.mb-1 { margin-bottom: 10px; }
+.mb-2 { margin-bottom: 20px; }
+.mb-3 { margin-bottom: 40px; }
+
+.hidden { display: none !important; }
+.visible { display: block !important; }
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

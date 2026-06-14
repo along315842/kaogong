@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!-- ==========================================
+     高频词语页面（详细版）
+     作者: 爱编程
+     版本: 1.0
+     说明: 展示公考高频词语，支持分页和搜索
+     功能: 每页显示10个词语，可翻页查看
+     ========================================== -->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高频词语 - 公考知识分享平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- 页面专属样式 -->
+    <style>
+        /* ------------------------------------------
+           1. 头部区域样式
+           ------------------------------------------ */
+        .page-hero {
+            background: linear-gradient(135deg, #4a90e2 0%, #667eea 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .page-hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .page-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* ------------------------------------------
+           2. 搜索框样式
+           ------------------------------------------ */
+        .search-wrapper {
+            max-width: 500px;
+            margin: 20px auto 0;
+        }
+        
+        .search-wrapper input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 15px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-wrapper input:focus {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* ------------------------------------------
+           3. 统计信息样式
+           ------------------------------------------ */
+        .stats-info {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 15px;
+            color: #666;
+        }
+        
+        .stats-info strong {
+            color: #4a90e2;
+        }
+        
+        /* ------------------------------------------
+           4. 学习提示样式
+           ------------------------------------------ */
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .tip-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        /* ------------------------------------------
+           5. 词语卡片样式
+           ------------------------------------------ */
+        .word-item {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #4a90e2;
+            transition: all 0.3s ease;
+        }
+        
+        .word-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left-color: #764ba2;
+        }
+        
+        .word-item h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .word-item .meaning {
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .word-item .example {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 13px;
+        }
+        
+        .word-item .near-words,
+        .word-item .anti-words {
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        
+        /* 感情色彩标签 */
+        .color-tag {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .color-tag.positive {
+            background: #e8f5e9;
+            color: #4caf50;
+        }
+        
+        .color-tag.negative {
+            background: #ffebee;
+            color: #f44336;
+        }
+        
+        .color-tag.neutral {
+            background: #e3f2fd;
+            color: #2196f3;
+        }
+        
+        /* ------------------------------------------
+           6. 分页导航样式
+           ------------------------------------------ */
+        .pagination-container {
+            margin-top: 20px;
+            padding: 15px;
+        }
+        
+        /* 分页按钮 */
+        .page-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .page-btn:hover:not(.disabled):not(.active) {
+            background: #4a90e2;
+            color: white;
+            border-color: #4a90e2;
+        }
+        
+        /* 当前页按钮 */
+        .page-btn.active {
+            background: #4a90e2;
+            color: white;
+            border-color: #4a90e2;
+        }
+        
+        /* 禁用按钮 */
+        .page-btn.disabled {
+            background: #f5f5f5;
+            color: #999;
+            cursor: not-allowed;
+            border-color: #ddd;
+        }
+        
+        /* ------------------------------------------
+           7. 响应式设计
+           ------------------------------------------ */
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 28px;
+            }
+            
+            .word-item {
+                padding: 20px;
+            }
+            
+            .page-btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo" onclick="goHome()" style="cursor: pointer;">
+                📚 公考知识库
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="chengyu.html">成语查询</a>
+                <a href="gaopin.html">高频词语</a>
+                <a href="ziliao.html">资料下载</a>
+            </div>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+        <!-- 头部区域 -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>💪 高频词语</h1>
+                <p>收录公考高频词语，助力高效备考</p>
+                
+                <!-- 搜索框 -->
+                <!-- oninput事件: 输入时实时搜索 -->
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="🔍 搜索词语、解释..." 
+                           oninput="searchGaopin(this.value)">
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 学习提示 -->
+            <div class="tip-box">
+                <h4>💡 学习提示</h4>
+                <p>这些词语是申论和行测中的高频词汇，建议每天记忆5-10个，结合例句理解使用场景。持之以恒，必有收获！</p>
+            </div>
+            
+            <!-- 统计信息 -->
+            <!-- id="wordStats" 用于JavaScript动态更新统计 -->
+            <div class="stats-info">
+                <span id="wordStats">一共找到 50 个</span>
+            </div>
+            
+            <!-- 词语列表容器 -->
+            <!-- id="gaopinList" JavaScript会在这里填充词语内容 -->
+            <div id="gaopinList">
+                <div class="loading">正在加载...</div>
+            </div>
+            
+            <!-- 分页导航容器 -->
+            <!-- id="pagination" JavaScript会在这里填充分页按钮 -->
+            <div id="pagination" class="pagination-container"></div>
+        </div>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="chengyu.html"><span>📚</span><span>成语</span></a></li>
+            <li><a href="gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- 引入JavaScript文件 -->
+    <script src="../js/main.js"></script>
+    
+    <!-- 页面初始化脚本 -->
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化筛选数据为全部数据
+            filteredWords = gaopinWords;
+            // 渲染第一页
+            renderGaopinWords(1);
+        });
+    </script>
+</body>
+</html>

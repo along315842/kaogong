@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- ==========================================
+     资料下载页面
+     作者: 爱编程
+     版本: 1.0
+     说明: 展示各类备考资料,提供网盘下载链接
+     ========================================== -->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料下载 - 公考知识分享平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* 页面头部 */
+        .page-header-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header-section h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .page-header-section p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        /* 资料分类标签 */
+        .category-filter {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid #4a90e2;
+            color: #4a90e2;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #4a90e2;
+            color: white;
+        }
+        
+        /* 资料卡片样式 */
+        .ziliao-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid #4a90e2;
+        }
+        
+        .ziliao-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-left-color: #764ba2;
+        }
+        
+        /* 资料标题 */
+        .ziliao-title {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* 资料描述 */
+        .ziliao-desc {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        /* 标签样式 */
+        .ziliao-tag {
+            display: inline-block;
+            padding: 6px 15px;
+            background: #e8f4fd;
+            color: #4a90e2;
+            border-radius: 15px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        /* 下载按钮区域 */
+        .download-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .download-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #4a90e2 0%, #667eea 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+        
+        /* 提取码样式 */
+        .password-info {
+            background: #fff3cd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #856404;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 注意事项 */
+        .notice-box {
+            background: #f8f9fa;
+            border-left: 4px solid #4a90e2;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .notice-box h4 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .notice-box ul {
+            color: #666;
+            line-height: 2;
+            padding-left: 20px;
+        }
+        
+        .notice-box li {
+            list-style: disc;
+        }
+        
+        /* 更新时间 */
+        .update-time {
+            color: #999;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo" onclick="goHome()" style="cursor: pointer;">
+                📚 公考知识库
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="chengyu.html">成语查询</a>
+                <a href="gaopin.html">高频词语</a>
+                <a href="ziliao.html">资料下载</a>
+            </div>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+        <!-- 页面头部 -->
+        <section class="page-header-section">
+            <div class="container">
+                <h1>📀 备考资料下载</h1>
+                <p>机构、名师最新课程资源，实时更新，免费获取</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 注意事项 -->
+            <div class="notice-box">
+                <h4>📌 使用说明</h4>
+                <ul>
+                    <li>点击「下载资料」按钮会跳转到网盘页面</li>
+                    <li>部分资料需要输入提取码，提取码已在下方标注</li>
+                    <li>如果链接失效，请联系管理员更新</li>
+                    <li>建议使用电脑端下载，体验更佳</li>
+                </ul>
+            </div>
+            
+            <!-- 资料分类 -->
+            <div class="category-filter">
+                <button class="filter-btn active" onclick="filterZiliao('all')">全部资料</button>
+                <button class="filter-btn" onclick="filterZiliao('历年真题')">历年真题</button>
+                <button class="filter-btn" onclick="filterZiliao('备考资料')">备考资料</button>
+                <button class="filter-btn" onclick="filterZiliao('高频考点')">高频考点</button>
+            </div>
+            
+            <!-- 资料列表容器 -->
+            <div id="ziliaoList">
+                <div class="loading">正在加载资料列表...</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="chengyu.html"><span>📚</span><span>成语</span></a></li>
+            <li><a href="gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script src="../js/main.js"></script>
+    
+    <script>
+        /**
+         * 资料筛选功能
+         * @param {string} category - 资料分类
+         * 
+         * 根据选择的分类筛选显示资料
+         */
+        function filterZiliao(category) {
+            // 更新按钮状态
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // 筛选资料
+            const container = document.getElementById('ziliaoList');
+            
+            if (category === 'all') {
+                // 显示全部资料
+                renderZiliao();
+            } else {
+                // 显示指定分类的资料
+                const filtered = ziliaoData.filter(item => item.type === category);
+                
+                if (filtered.length === 0) {
+                    container.innerHTML = '<div class="loading">该分类暂无资料</div>';
+                    return;
+                }
+                
+                let html = '';
+                filtered.forEach(item => {
+                    html += `
+                        <div class="ziliao-card">
+                            <div class="ziliao-title">📄 ${item.title}</div>
+                            <span class="ziliao-tag">${item.type}</span>
+                            <p class="ziliao-desc">${item.description}</p>
+                            <div class="download-area">
+                                <button class="download-btn" onclick="goToDownload('${item.downloadUrl}', '${item.password}')">
+                                    📥 下载资料
+                                </button>
+                                ${item.password ? `<span class="password-info">🔑 提取码: ${item.password}</span>` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+        }
+    </script>
+</body>
+</html>

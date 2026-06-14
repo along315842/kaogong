@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!-- ==========================================
+     公考知识分享平台 - 首页
+     作者: 爱编程
+     版本: 1.0
+     说明: 这是网站的主页面,展示网站介绍和主要功能入口
+     ========================================== -->
+<html lang="zh-CN">
+<head>
+    <!-- ------------------------------------------
+         1. 头部信息设置
+         ------------------------------------------ -->
+    <meta charset="UTF-8">
+    <!-- viewport 用于响应式设计,确保在移动端正常显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公考知识分享平台 - 助你上岸</title>
+    
+    <!-- 引入CSS样式文件 -->
+    <!-- href路径说明: ./ 表示当前目录,css/style.css 就是当前目录下的css文件夹中的style.css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ------------------------------------------
+         2. 顶部导航栏
+         说明: 固定在页面顶部,包含logo和导航链接
+         ------------------------------------------ -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo区域 -->
+            <div class="logo">
+                📚 公考知识库
+            </div>
+            
+            <!-- 导航链接 -->
+            <!-- a标签: href属性指定链接目标, # 表示空链接 -->
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="pages/news.html">新闻联播</a>
+                <a href="pages/chengyu.html">成语查询</a>
+                <a href="pages/gaopin.html">高频词语</a>
+                <a href="pages/ziliao.html">资料下载</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <!-- onclick事件: 点击时调用某个JavaScript函数 -->
+            <div class="menu-toggle" onclick="alert('移动端菜单')">☰</div>
+        </div>
+    </nav>
+
+    <!-- ------------------------------------------
+         3. 主内容区域
+         说明: 包含英雄区、特点介绍、功能入口等
+         ------------------------------------------ -->
+    <main class="main-content">
+        <!-- 英雄区域 - 最醒目的介绍部分 -->
+        <!-- padding-top 给导航栏留出空间 -->
+        <div style="padding-top: 80px; padding-bottom: 60px; text-align: center; 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="container">
+                <h1 style="font-size: 48px; margin-bottom: 20px;">
+                    📖 公考知识分享平台
+                </h1>
+                <p style="font-size: 20px; margin-bottom: 30px; opacity: 0.95;">
+                    无论你是初出茅庐的应届生，还是久经沙场的职场人士，<br>
+                    本平台始终为你的备考之旅保驾护航
+                </p>
+                <!-- button标签: type="button"表示普通按钮, onclick是点击事件 -->
+                <button type="button" class="btn" style="background: white; color: #667eea;" 
+                        onclick="location.href='pages/ziliao.html'">
+                    🚀 立即开始学习
+                </button>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------
+             4. 平台特点介绍区域
+             说明: 用卡片形式展示平台的3个核心特点
+             ------------------------------------------ -->
+        <section style="padding: 60px 0;">
+            <div class="container">
+                <div class="page-header">
+                    <h1>🎯 为什么选择我们？</h1>
+                    <p>专业、全面、高效的备考助手</p>
+                </div>
+                
+                <!-- 特点卡片网格布局 -->
+                <!-- 使用grid布局,自动适应屏幕宽度 -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+                            gap: 30px; margin-top: 40px;">
+                    
+                    <!-- 第一个特点卡片 -->
+                    <div class="card" style="text-align: center;">
+                        <!-- emoji作为图标,更直观 -->
+                        <div style="font-size: 60px; margin-bottom: 20px;">💡</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">精准定位，高效备考</h3>
+                        <p style="color: #666; line-height: 1.8;">
+                            内容融合了各大顶尖机构与考试领域专家的深度见解，
+                            保证信息的权威性、正确性。同时加入高效学习工具，
+                            让备考更加高效、有的放矢。
+                        </p>
+                    </div>
+                    
+                    <!-- 第二个特点卡片 -->
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 60px; margin-bottom: 20px;">📦</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">全面覆盖，深度解析</h3>
+                        <p style="color: #666; line-height: 1.8;">
+                            网站以「查缺补漏、对症下药」为核心理念，涵盖行测、申论等考试全科目基础知识点，
+                            内容广泛全面、清晰易查、通俗易懂，告别碎片化学习。
+                        </p>
+                    </div>
+                    
+                    <!-- 第三个特点卡片 -->
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 60px; margin-bottom: 20px;">🎉</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">一站学习，共同进步</h3>
+                        <p style="color: #666; line-height: 1.8;">
+                            本平台致力于打造成为您的专属学习智囊，我们将持续关注考试动态，
+                            实时更新核心资料库与优化内容，确保能获取到最前沿、最实用的备考资源。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        <!-- ------------------------------------------
+             新闻联播预览区域
+             说明: 在首页顶部展示今日要闻
+             ------------------------------------------ -->
+        <section style="padding: 40px 0; background: linear-gradient(135deg, #e53935 0%, #c62828 100%); color: white;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <div>
+                        <h1 style="font-size: 32px; margin-bottom: 5px;">📺 新闻联播</h1>
+                        <p style="opacity: 0.9; font-size: 16px;">了解时事政治，积累申论素材</p>
+                    </div>
+                    <a href="pages/news.html" class="btn" style="background: white; color: #e53935; padding: 12px 24px; font-size: 16px;">
+                        查看全部 →
+                    </a>
+                </div>
+
+                <!-- 新闻列表 -->
+                <div id="homeNewsList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; text-align: center;">
+                        <div class="loading" style="color: white;">加载中...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------
+             5. 功能入口区域
+             说明: 展示各个功能模块的快速入口
+             ------------------------------------------ -->
+        <section style="padding: 60px 0; background: #f5f7fa;">
+            <div class="container">
+                <div class="page-header">
+                    <h1>🔎 网站快捷导航</h1>
+                    <p>选择你需要的工具开始学习</p>
+                </div>
+
+                <!-- 功能卡片网格 - 由JavaScript动态生成 -->
+                <!-- id="toolsGrid" 是给JavaScript留的钩子,方便JS找到这个元素并填充内容 -->
+                <div id="toolsGrid" class="card-grid">
+                    <!-- JavaScript会在这里动态插入功能卡片 -->
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------
+             6. 最新资料下载区域
+             说明: 展示最近更新的学习资料
+             ------------------------------------------ -->
+        <section style="padding: 60px 0;">
+            <div class="container">
+                <div class="page-header">
+                    <h1>📀 最新资料下载</h1>
+                    <p>实时更新，免费获取</p>
+                </div>
+                
+                <!-- 资料列表由JavaScript动态生成 -->
+                <div id="latestZiliao">
+                    <div class="loading">加载中...</div>
+                </div>
+                
+                <!-- 查看更多按钮 -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <button type="button" class="btn" onclick="location.href='pages/ziliao.html'">
+                        查看全部资料 →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------
+             7. 底部信息区域
+             说明: 包含版权信息和使用提示
+             ------------------------------------------ -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <!-- 关于我们 -->
+                    <div class="footer-section">
+                        <h4>关于我们</h4>
+                        <p>公考知识分享平台致力于为考生提供全面、专业的备考资料和工具。</p>
+                    </div>
+                    
+                    <!-- 快速链接 -->
+                    <div class="footer-section">
+                        <h4>快速链接</h4>
+                        <a href="pages/chengyu.html">成语查询</a>
+                        <a href="pages/gaopin.html">高频词语</a>
+                        <a href="pages/ziliao.html">资料下载</a>
+                    </div>
+                    
+                    <!-- 联系方式 -->
+                    <div class="footer-section">
+                        <h4>联系我们</h4>
+                        <p>邮箱: contact@example.com</p>
+                        <p>网站: www.example.com</p>
+                    </div>
+                </div>
+                
+                <!-- 版权声明 -->
+                <div class="footer-bottom">
+                    <p>© 2024 公考知识分享平台. All rights reserved. | 仅供学习交流使用</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ------------------------------------------
+         8. 移动端底部导航
+         说明: 只在手机端显示,方便用户快速切换页面
+         ------------------------------------------ -->
+    <nav class="bottom-nav">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <span>🏠</span>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="pages/chengyu.html">
+                    <span>📚</span>
+                    <span>成语</span>
+                </a>
+            </li>
+            <li>
+                <a href="pages/gaopin.html">
+                    <span>💪</span>
+                    <span>词语</span>
+                </a>
+            </li>
+            <li>
+                <a href="pages/ziliao.html">
+                    <span>📥</span>
+                    <span>资料</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ------------------------------------------
+         9. 引入JavaScript文件
+         说明: 必须放在body末尾,确保DOM元素已经加载完成
+         src路径: ./js/main.js 表示当前目录下的js文件夹中的main.js
+         ------------------------------------------ -->
+    <script src="js/main.js"></script>
+
+    <!-- 首页新闻列表加载 - API调用版本 -->
+    <script>
+        // ==========================================
+        // 首页新闻预览 - 通过API获取最新新闻
+        // 说明: 从API获取今日新闻，显示前6条要闻
+        // ==========================================
+
+        // 日期格式化 - 用于API调用 (YYYY-MM-DD格式)
+        function formatDateAPI(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // 从API获取新闻数据
+        async function fetchNewsForHome(date) {
+            const dateStr = formatDateAPI(date);
+            const apiUrl = `https://saduck.top/api/news/getNewsByDay?day=${dateStr}`;
+
+            try {
+                // 使用POST方法调用API
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json, text/plain, */*'
+                    },
+                    body: '{}'  // 空JSON对象
+                });
+                const data = await response.json();
+
+                if (data.code === 0 && data.result) {
+                    return {
+                        success: true,
+                        intro: data.result.intro,
+                        addTime: data.result.addTime
+                    };
+                } else {
+                    return { success: false };
+                }
+            } catch (error) {
+                console.error('获取新闻失败:', error);
+                return { success: false };
+            }
+        }
+
+        // 渲染首页新闻列表
+        async function renderHomeNews() {
+            const homeNewsList = document.getElementById('homeNewsList');
+
+            // 尝试获取今日新闻
+            let newsData = await fetchNewsForHome(new Date());
+
+            // 如果今日没有新闻，尝试获取昨天的新闻
+            if (!newsData.success) {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                newsData = await fetchNewsForHome(yesterday);
+            }
+
+            if (!newsData.success) {
+                // 显示错误信息
+                homeNewsList.innerHTML = `
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;
+                                grid-column: 1 / -1; text-align: center;">
+                        <p style="font-size: 16px;">暂无新闻数据</p>
+                        <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">
+                            点击下方按钮查看新闻联播
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 解析intro内容，提取要闻列表
+            const introContent = newsData.intro;
+            let summaries = [];
+
+            try {
+                // 尝试提取要闻列表
+                const ulMatch = introContent.match(/<ul[^>]*>(.*?)<\/ul>/);
+                if (ulMatch) {
+                    const liMatches = ulMatch[1].match(/<li[^>]*>(.*?)<\/li>/g);
+                    if (liMatches) {
+                        summaries = liMatches.map(li => {
+                            return li.replace(/<[^>]+>/g, '').trim();
+                        }).filter(item => item && item.length > 0);
+                    }
+                }
+            } catch (e) {
+                console.log('解析要闻列表失败');
+            }
+
+            // 显示前6条新闻
+            if (summaries.length > 0) {
+                const displayNews = summaries.slice(0, 6);
+                let html = '';
+
+                displayNews.forEach((item, index) => {
+                    html += `
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;
+                                    cursor: pointer; transition: all 0.3s;"
+                             onclick="location.href='pages/news.html'"
+                             onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+                             onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                            <div style="font-size: 14px; opacity: 0.8; margin-bottom: 10px;">
+                                要闻 ${index + 1}
+                            </div>
+                            <div style="font-size: 15px; line-height: 1.6;">
+                                ${item.length > 40 ? item.substring(0, 40) + '...' : item}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                homeNewsList.innerHTML = html;
+            } else {
+                // 如果无法解析要闻列表，显示提示
+                homeNewsList.innerHTML = `
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;
+                                grid-column: 1 / -1; text-align: center;">
+                        <p style="font-size: 16px;">点击下方按钮查看完整新闻内容</p>
+                        <a href="pages/news.html" class="btn"
+                           style="background: white; color: #e53935; padding: 12px 24px;
+                                  font-size: 16px; display: inline-block; margin-top: 15px;">
+                            查看新闻联播 →
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // 页面加载完成后渲染新闻列表
+        document.addEventListener('DOMContentLoaded', renderHomeNews);
+    </script>
+</body>
+</html>

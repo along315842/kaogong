@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻联播 - 公考知识分享平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* 新闻联播页面样式 */
+        .news-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        }
+
+        /* 日期导航 */
+        .date-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .date-nav button {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .date-nav button:hover {
+            background: linear-gradient(135deg, #357abd 0%, #286090 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .date-nav button:disabled {
+            background: #e0e6ed;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .date-nav .current-date {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .date-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .date-picker {
+            padding: 6px 12px;
+            border: 2px solid #e0e6ed;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .date-picker:hover {
+            border-color: #4a90e2;
+        }
+
+        .date-picker:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        /* 新闻内容区域 */
+        .news-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* 新闻标题 */
+        #newsTitle {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #4a90e2;
+            text-align: center;
+        }
+
+        /* 新闻详情内容 */
+        .news-detail {
+            margin-top: 20px;
+        }
+
+        .news-detail p {
+            text-indent: 2em;
+            margin: 14px 0;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .news-detail ul {
+            margin: 15px 0;
+            padding-left: 2em;
+        }
+
+        .news-detail li {
+            margin: 12px 0;
+            position: relative;
+            padding-left: 18px;
+            color: #555;
+        }
+
+        .news-detail li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #4a90e2;
+            border-radius: 50%;
+        }
+
+        .news-detail strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .news-detail h3 {
+            color: #4a90e2;
+            margin: 25px 0 15px 0;
+            font-size: 1.15em;
+            font-weight: 600;
+            padding-left: 10px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .news-detail .lead {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.05em;
+        }
+
+        .news-detail .entry-content {
+            color: #444;
+        }
+
+        /* 加载状态 */
+        .no-news {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+
+        .no-news p {
+            text-indent: 0 !important;
+            margin: 10px 0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .news-container {
+                padding: 15px;
+            }
+
+            .date-nav {
+                padding: 12px 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .date-nav button {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .date-nav .current-date {
+                font-size: 1.1em;
+            }
+
+            .date-center {
+                order: -1;
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .date-picker {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+
+            .news-content {
+                padding: 20px 15px;
+            }
+
+            #newsTitle {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 - 与首页一致 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                📚 公考知识库
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="news.html" class="active">新闻联播</a>
+                <a href="chengyu.html">成语查询</a>
+                <a href="gaopin.html">高频词语</a>
+                <a href="ziliao.html">资料下载</a>
+            </div>
+            <div class="menu-toggle" onclick="alert('移动端菜单')">☰</div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 - 与首页一致的样式 -->
+    <div style="padding-top: 80px; padding-bottom: 60px; text-align: center; 
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container">
+            <h1 style="font-size: 48px; margin-bottom: 20px;">
+                📺 新闻联播
+            </h1>
+            <p style="font-size: 20px; margin-bottom: 30px; opacity: 0.95;">
+                把握时政热点，积累申论素材
+            </p>
+        </div>
+    </div>
+
+    <div class="news-container">
+        <!-- 日期导航 -->
+        <div class="date-nav">
+            <button onclick="changeDate(-1)">◀ 前一天</button>
+            <div class="date-center">
+                <div id="currentDate" class="current-date"></div>
+                <input type="date" id="datePicker" class="date-picker" onchange="selectDate()">
+            </div>
+            <button onclick="changeDate(1)">后一天 ▶</button>
+        </div>
+
+        <!-- 新闻内容区域 -->
+        <div class="news-content">
+            <!-- 新闻标题 -->
+            <div id="newsTitle"></div>
+
+            <!-- 新闻详情 -->
+            <div id="newsDetail" class="news-detail">
+                <div class="no-news">正在加载新闻...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2024 公考知识分享平台 | 助力每一位公考人</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 当前查看的新闻日期 - 默认显示前天
+        let currentNewsDate = new Date();
+        currentNewsDate.setDate(currentNewsDate.getDate() - 2);  // 设置为前天
+        let currentIntroContent = '';
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化日期选择器的值
+            updateDatePicker();
+            // 加载新闻
+            renderNews();
+        });
+
+        // 更新日期选择器的值
+        function updateDatePicker() {
+            const datePicker = document.getElementById('datePicker');
+            const year = currentNewsDate.getFullYear();
+            const month = String(currentNewsDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentNewsDate.getDate()).padStart(2, '0');
+            datePicker.value = `${year}-${month}-${day}`;
+        }
+
+        // 日期格式化 - 用于显示
+        function formatDateDisplay(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const weekday = weekdays[date.getDay()];
+            return `${year}年${month}月${day}日 ${weekday}`;
+        }
+
+        // 日期格式化 - 用于API调用 (YYYY-MM-DD格式)
+        function formatDateAPI(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // 从API获取新闻数据
+        async function fetchNews(date) {
+            const dateStr = formatDateAPI(date);
+            const apiUrl = `https://saduck.top/api/news/getNewsByDay?day=${dateStr}`;
+
+            try {
+                document.getElementById('newsDetail').innerHTML = '<div class="no-news">正在加载新闻...</div>';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json, text/plain, */*'
+                    },
+                    body: '{}'
+                });
+                const data = await response.json();
+
+                if (data.code === 0 && data.result) {
+                    return {
+                        success: true,
+                        title: data.result.title,
+                        intro: data.result.intro,
+                        addTime: data.result.addTime
+                    };
+                } else {
+                    return {
+                        success: false,
+                        message: data.message || '获取新闻失败'
+                    };
+                }
+            } catch (error) {
+                console.error('获取新闻失败:', error);
+                return {
+                    success: false,
+                    message: '网络请求失败，请检查网络连接'
+                };
+            }
+        }
+
+        // 渲染新闻内容
+        async function renderNews() {
+            document.getElementById('currentDate').textContent = formatDateDisplay(currentNewsDate);
+            document.getElementById('newsTitle').textContent = `${formatDateDisplay(currentNewsDate)} 新闻联播主要内容`;
+
+            const newsData = await fetchNews(currentNewsDate);
+
+            if (!newsData.success) {
+                document.getElementById('newsDetail').innerHTML = `
+                    <div class="no-news">
+                        <p>${newsData.message}</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">请尝试查看其他日期的新闻</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const introContent = newsData.intro;
+            currentIntroContent = introContent;
+            document.getElementById('newsDetail').innerHTML = introContent;
+        }
+
+        // 切换日期
+        function changeDate(delta) {
+            currentNewsDate.setDate(currentNewsDate.getDate() + delta);
+            updateDatePicker();
+            renderNews();
+        }
+
+        // 选择日期
+        function selectDate() {
+            const datePicker = document.getElementById('datePicker');
+            const selectedDate = new Date(datePicker.value);
+            currentNewsDate = selectedDate;
+            renderNews();
+        }
+    </script>
+</body>
+</html>
