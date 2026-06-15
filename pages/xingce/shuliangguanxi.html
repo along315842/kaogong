@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数量关系 - 行测题库</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #27ae60;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '📏';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .example-box {
+            background: #f0fff4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .example-box .question {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .example-box .answer {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            color: #1b5e20;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .sub-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .sub-nav a {
+            padding: 8px 16px;
+            background: #f0fff4;
+            color: #27ae60;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .sub-nav a:hover {
+            background: #27ae60;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>🔢 数量关系</h1>
+                <p>培养数学思维，掌握快速解题技巧</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="sub-nav">
+                <a href="#arithmetic">算术运算</a>
+                <a href="#equation">方程问题</a>
+                <a href="#probability">概率统计</a>
+                <a href="#skill">解题技巧</a>
+            </div>
+
+            <div id="arithmetic" class="section">
+                <h3>算术运算</h3>
+                <ul class="knowledge-list">
+                    <li>整除问题：利用整除特性快速判断</li>
+                    <li>余数问题：掌握余数定理</li>
+                    <li>公倍数与公约数：最小公倍数和最大公约数</li>
+                    <li>比例问题：按比例分配</li>
+                    <li>浓度问题：溶液浓度计算</li>
+                </ul>
+            </div>
+
+            <div id="equation" class="section">
+                <h3>方程与应用题</h3>
+                <ul class="knowledge-list">
+                    <li>一元一次方程：基础方程求解</li>
+                    <li>二元一次方程组：联立方程求解</li>
+                    <li>行程问题：路程、速度、时间关系</li>
+                    <li>工程问题：工作量、效率、时间关系</li>
+                    <li>利润问题：成本、售价、利润关系</li>
+                </ul>
+            </div>
+
+            <div id="probability" class="section">
+                <h3>概率与统计</h3>
+                <ul class="knowledge-list">
+                    <li>排列组合：排列数与组合数计算</li>
+                    <li>概率计算：古典概率、条件概率</li>
+                    <li>平均数与中位数：数据统计分析</li>
+                    <li>容斥原理：集合运算</li>
+                </ul>
+            </div>
+
+            <div id="skill" class="section">
+                <h3>例题解析</h3>
+                <div class="example-box">
+                    <h4>例题：行程问题</h4>
+                    <p class="question">
+                        甲、乙两人分别从A、B两地同时出发相向而行，甲每小时走5公里，乙每小时走4公里，3小时后两人相遇。问A、B两地相距多少公里？
+                    </p>
+                    <div class="answer">
+                        解答：距离 = 速度和 × 时间 = (5+4) × 3 = 27公里<br>
+                        <strong>答案：27公里</strong>
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <p><strong>💡 技巧：画图分析</strong><br>
+                    行程问题通过画图可以直观理解运动过程，帮助建立数学模型。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📝</span><span>行测</span></a></li>
+            <li><a href="../gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+    
+    <!-- 引入公共导航栏组件 -->
+    <script src="../../js/navbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>申论规范词 - 申论学习</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #1abc9c;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #1abc9c;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .word-box {
+            background: #f0fffe;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 3px solid #1abc9c;
+        }
+        
+        .word-box .word {
+            font-weight: bold;
+            color: #006064;
+            margin-bottom: 8px;
+        }
+        
+        .word-box .explain {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .category-box {
+            background: #e0f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .category-box h4 {
+            color: #006064;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #1abc9c;">📝 规范词汇</div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links" style="display: flex; gap: 15px;">
+                <a href="../shenlun.html">返回</a>
+                <a href="weishenme.html">为什么申论</a>
+                <a href="yuedu.html">阅读技巧</a>
+                <a href="tixing.html">题型详解</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" style="display: none;">
+            <a href="../shenlun.html">返回申论首页</a>
+            <a href="weishenme.html">为什么是申论</a>
+            <a href="yuedu.html">材料阅读技巧</a>
+            <a href="tixing.html">题型详解</a>
+            <a href="mingyan.html">名言积累</a>
+            <a href="renwu.html">人物素材</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>📝 申论规范词</h1>
+                <p>积累规范词汇，提升语言表达的专业性</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="section">
+                <h3>经济发展类</h3>
+                <div class="word-grid">
+                    <div class="word-box">
+                        <div class="word">供给侧结构性改革</div>
+                        <div class="explain">调整经济结构，提高供给质量</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">高质量发展</div>
+                        <div class="explain">注重质量和效益的发展模式</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">产业升级</div>
+                        <div class="explain">产业结构向更高层次演进</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">创新驱动发展</div>
+                        <div class="explain">以创新为动力推动发展</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">优化营商环境</div>
+                        <div class="explain">改善企业发展的外部条件</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">乡村振兴战略</div>
+                        <div class="explain">促进农村经济社会发展</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>社会治理类</h3>
+                <div class="word-grid">
+                    <div class="word-box">
+                        <div class="word">基层治理</div>
+                        <div class="explain">基层层面的社会管理和服务</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">放管服改革</div>
+                        <div class="explain">简政放权、放管结合、优化服务</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">民生保障</div>
+                        <div class="explain">保障人民基本生活需求</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">公共服务均等化</div>
+                        <div class="explain">确保公共服务公平分配</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">社会共治</div>
+                        <div class="explain">多方参与共同治理</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">网格化管理</div>
+                        <div class="explain">精细化的基层管理模式</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>生态环保类</h3>
+                <div class="word-grid">
+                    <div class="word-box">
+                        <div class="word">绿水青山就是金山银山</div>
+                        <div class="explain">生态环境保护与经济发展相协调</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">可持续发展</div>
+                        <div class="explain">满足当代需求又不损害后代利益</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">生态文明建设</div>
+                        <div class="explain">推进生态环境保护与建设</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">污染防治攻坚战</div>
+                        <div class="explain">坚决打好污染治理战役</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">绿色发展</div>
+                        <div class="explain">低能耗、低污染的发展模式</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">碳达峰碳中和</div>
+                        <div class="explain">控制碳排放，实现碳平衡</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>文化建设类</h3>
+                <div class="word-grid">
+                    <div class="word-box">
+                        <div class="word">文化自信</div>
+                        <div class="explain">对自身文化价值的充分肯定</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">传统文化传承</div>
+                        <div class="explain">继承和发扬优秀传统文化</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">社会主义核心价值观</div>
+                        <div class="explain">国家层面的价值导向</div>
+                    </div>
+                    <div class="word-box">
+                        <div class="word">公共文化服务</div>
+                        <div class="explain">面向公众的文化服务</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 使用建议</strong><br>
+                在申论写作中，恰当使用规范词汇可以提升文章的专业性和权威性。建议将这些词汇分类整理，每天背诵5-10个，逐步积累。在写作时，注意词汇的准确使用，避免生搬硬套。</p>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📊</span><span>行测</span></a></li>
+            <li><a href="../shenlun.html"><span>✍️</span><span>申论</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+</body>
+</html>

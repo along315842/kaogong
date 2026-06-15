@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公基常识 - 行测题库</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #1abc9c;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #1abc9c;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '🅰';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .example-box {
+            background: #f0fffe;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .example-box .question {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .example-box .answer {
+            background: #e0f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            color: #006064;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .sub-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .sub-nav a {
+            padding: 8px 16px;
+            background: #f0fffe;
+            color: #1abc9c;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .sub-nav a:hover {
+            background: #1abc9c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>📚 公基常识</h1>
+                <p>掌握公共基础知识，提升综合素养</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="sub-nav">
+                <a href="#law">法律常识</a>
+                <a href="#economy">经济常识</a>
+                <a href="#history">历史人文</a>
+                <a href="#science">科技常识</a>
+            </div>
+
+            <div id="law" class="section">
+                <h3>法律常识</h3>
+                <ul class="knowledge-list">
+                    <li>宪法：国家根本大法，公民基本权利义务</li>
+                    <li>行政法：行政行为、行政许可、行政处罚</li>
+                    <li>民法：民事权利、合同、侵权责任</li>
+                    <li>刑法：犯罪构成、刑罚种类</li>
+                    <li>诉讼法：民事诉讼、刑事诉讼、行政诉讼</li>
+                </ul>
+            </div>
+
+            <div id="economy" class="section">
+                <h3>经济常识</h3>
+                <ul class="knowledge-list">
+                    <li>宏观经济学：GDP、通货膨胀、货币政策</li>
+                    <li>微观经济学：供给需求、市场结构</li>
+                    <li>财政政策：税收、财政支出</li>
+                    <li>国际经济：汇率、国际贸易、WTO</li>
+                    <li>金融知识：股票、债券、保险</li>
+                </ul>
+            </div>
+
+            <div id="history" class="section">
+                <h3>历史人文</h3>
+                <ul class="knowledge-list">
+                    <li>中国古代史：朝代更迭、重要事件</li>
+                    <li>中国近代史：鸦片战争、辛亥革命、五四运动</li>
+                    <li>世界史：文艺复兴、工业革命、两次世界大战</li>
+                    <li>文化常识：诗词歌赋、传统节日、名人典故</li>
+                    <li>地理常识：中国地形、气候、世界地理</li>
+                </ul>
+            </div>
+
+            <div id="science" class="section">
+                <h3>科技常识</h3>
+                <ul class="knowledge-list">
+                    <li>物理常识：力学、电学、光学</li>
+                    <li>化学常识：元素周期表、化学反应</li>
+                    <li>生物常识：细胞、遗传、生态系统</li>
+                    <li>计算机知识：硬件、软件、网络</li>
+                    <li>前沿科技：人工智能、量子计算、航天技术</li>
+                </ul>
+                <div class="tip-box">
+                    <p><strong>💡 学习建议：日积月累</strong><br>
+                    公基常识内容广泛，建议每天积累一点，关注时政新闻和科普知识。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📝</span><span>行测</span></a></li>
+            <li><a href="../gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+    
+    <!-- 引入公共导航栏组件 -->
+    <script src="../../js/navbar.js"></script>
+</body>
+</html>

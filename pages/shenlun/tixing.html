@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>题型详解 - 申论学习</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #9b59b6;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #9b59b6;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #9b59b6;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '📋';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .type-box {
+            background: #faf5ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #9b59b6;
+        }
+        
+        .type-box h4 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .type-box p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .type-box .key-point {
+            background: #f3e5f5;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            color: #6a1b9a;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #9b59b6;">📋 题型详解</div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links" style="display: flex; gap: 15px;">
+                <a href="../shenlun.html">返回</a>
+                <a href="weishenme.html">为什么申论</a>
+                <a href="yuedu.html">阅读技巧</a>
+                <a href="guifan.html">规范词</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" style="display: none;">
+            <a href="../shenlun.html">返回申论首页</a>
+            <a href="weishenme.html">为什么是申论</a>
+            <a href="yuedu.html">材料阅读技巧</a>
+            <a href="guifan.html">申论规范词</a>
+            <a href="mingyan.html">名言积累</a>
+            <a href="renwu.html">人物素材</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>📋 题型详解</h1>
+                <p>全面掌握申论各类题型的答题方法</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="section">
+                <h3>归纳概括题</h3>
+                <div class="type-box">
+                    <h4>🎯 题型特点</h4>
+                    <p>要求考生对材料中的信息进行归纳、整理，提炼出核心要点。</p>
+                    <div class="key-point">
+                        <strong>答题技巧：</strong><br>
+                        1. 仔细阅读题目，明确概括范围<br>
+                        2. 逐段梳理材料，标记关键信息<br>
+                        3. 分类整理要点，避免遗漏<br>
+                        4. 语言简洁，分点作答
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>综合分析题</h3>
+                <div class="type-box">
+                    <h4>🎯 题型特点</h4>
+                    <p>要求考生对给定资料中的观点、现象进行分析、评价，提出自己的见解。</p>
+                    <div class="key-point">
+                        <strong>答题技巧：</strong><br>
+                        1. 明确分析对象和角度<br>
+                        2. 结合材料进行辩证分析<br>
+                        3. 提出自己的观点并说明理由<br>
+                        4. 结构清晰，逻辑严谨
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>提出对策题</h3>
+                <div class="type-box">
+                    <h4>🎯 题型特点</h4>
+                    <p>要求考生针对材料中反映的问题，提出切实可行的解决方案。</p>
+                    <div class="key-point">
+                        <strong>答题技巧：</strong><br>
+                        1. 先明确问题是什么<br>
+                        2. 分析问题产生的原因<br>
+                        3. 提出针对性的对策<br>
+                        4. 对策要具体、可行、可操作
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>应用文写作</h3>
+                <div class="type-box">
+                    <h4>🎯 题型特点</h4>
+                    <p>要求考生根据给定情境，撰写讲话稿、报告、通知等应用文体。</p>
+                    <div class="key-point">
+                        <strong>答题技巧：</strong><br>
+                        1. 明确文种和格式要求<br>
+                        2. 把握行文目的和对象<br>
+                        3. 内容要符合实际工作逻辑<br>
+                        4. 语言要正式、规范
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>文章论述题</h3>
+                <div class="type-box">
+                    <h4>🎯 题型特点</h4>
+                    <p>要求考生围绕给定主题，撰写一篇议论文。</p>
+                    <div class="key-point">
+                        <strong>答题技巧：</strong><br>
+                        1. 认真审题，确定立意<br>
+                        2. 搭建文章框架（开头-主体-结尾）<br>
+                        3. 运用论据支撑论点<br>
+                        4. 语言流畅，书写工整
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 答题注意事项</strong><br>
+                1. 仔细审题，明确答题要求和字数限制<br>
+                2. 答案要基于材料，不要脱离材料凭空想象<br>
+                3. 保持卷面整洁，字迹工整<br>
+                4. 注意答题时间，合理分配各题作答时间</p>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📊</span><span>行测</span></a></li>
+            <li><a href="../shenlun.html"><span>✍️</span><span>申论</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空间类 - 图形推理 - 判断推理</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    
+    <style>
+        body { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; position: fixed; left: 0; top: 0; bottom: 0; overflow-y: auto; z-index: 1000; }
+        .sidebar-header { padding: 20px; background: rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .sidebar-header h2 { font-size: 18px; margin: 0; font-weight: 600; }
+        .sidebar-nav { padding: 15px 0; }
+        .sidebar-nav .nav-item { padding: 0 20px; }
+        .sidebar-nav .nav-item h3 { font-size: 14px; color: #95a5a6; margin: 15px 0 10px; padding-left: 10px; }
+        .sidebar-nav a { display: block; padding: 10px 20px; color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s; border-left: 3px solid transparent; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background: rgba(255,255,255,0.1); border-left-color: #f39c12; color: white; }
+        .main-content { flex: 1; margin-left: 260px; min-height: 100vh; background: #f5f7fa; }
+        .page-header { background: white; padding: 15px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 20px; color: #333; margin: 0; }
+        .page-header .nav-links { display: flex; gap: 20px; }
+        .page-header .nav-links a { color: #666; text-decoration: none; font-size: 14px; }
+        .page-header .nav-links a:hover { color: #f39c12; }
+        .content-area { padding: 30px; }
+        .content-box { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .content-box h2 { color: #2c3e50; font-size: 22px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f39c12; }
+        .content-box h3 { color: #333; font-size: 18px; margin-top: 25px; margin-bottom: 15px; }
+        .content-box p { color: #666; line-height: 1.8; font-size: 15px; }
+        .knowledge-list { list-style: none; padding: 0; }
+        .knowledge-list li { padding: 12px 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #f39c12; color: #555; font-size: 14px; }
+        .tip-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; margin-top: 15px; border-radius: 0 6px 6px 0; }
+        .tip-box p { color: #856404; font-size: 14px; }
+        .menu-toggle { display: none; }
+        @media (max-width: 768px) {
+            .sidebar { width: 220px; transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .menu-toggle { display: block !important; font-size: 24px; cursor: pointer; margin-right: 15px; }
+            .page-header { padding: 15px 20px; }
+            .content-area { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header"><h2>🎨 判断推理</h2></div>
+        <nav class="sidebar-nav">
+            <div class="nav-item">
+                <h3>图形推理</h3>
+                <a href="weizhi.html">位置规律</a>
+                <a href="yangshi.html">样式规律</a>
+                <a href="shuxing.html">属性规律</a>
+                <a href="shuliang.html">数量规律</a>
+                <a href="teshu.html">特殊规律</a>
+                <a href="kongjian.html" class="active">空间类</a>
+            </div>
+            <div class="nav-item"><h3>逻辑判断</h3>
+                <a href="../luoji/fanyihou.html">翻译推理</a>
+                <a href="../luoji/zhenjia.html">真假推理</a>
+                <a href="../luoji/fenxi.html">分析推理</a>
+                <a href="../luoji/xiaoruo.html">削弱论证</a>
+                <a href="../luoji/jiaqiang.html">加强论证</a>
+            </div>
+            <div class="nav-item"><h3>类比推理</h3>
+                <a href="../leibi/gainian.html">概念关系</a>
+                <a href="../leibi/yuyi.html">语义关系</a>
+                <a href="../leibi/yufa.html">语法关系</a>
+                <a href="../leibi/duiying.html">对应关系</a>
+            </div>
+            <div class="nav-item"><h3>定义判断</h3>
+                <a href="../dingyi/dandingyi.html">单定义判断</a>
+                <a href="../dingyi/duodingyi.html">多定义判断</a>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div style="display: flex; align-items: center;">
+                <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
+                <h1>📦 空间类</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../panduanti.html">返回判断推理</a>
+                <a href="../luoji/fanyihou.html">下一节：翻译推理</a>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <div class="content-box">
+                <h2>空间类概述</h2>
+                <p>空间类题目主要考察考生的空间想象能力，需要将平面图形与立体图形进行转换。</p>
+                
+                <h3>核心考点</h3>
+                <ul class="knowledge-list">
+                    <li><strong>空间重构</strong>：根据展开图判断立体图</li>
+                    <li><strong>三视图</strong>：从不同角度观察立体图形</li>
+                    <li><strong>截面图</strong>：判断立体图形的截面形状</li>
+                    <li><strong>立体拼接</strong>：将多个立体图形拼接成完整图形</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>一、空间重构</h2>
+                <ul class="knowledge-list">
+                    <li><strong>相对面</strong>：相对面在立体图中不相邻</li>
+                    <li><strong>相邻面</strong>：相邻面的位置关系不变</li>
+                    <li><strong>画边法</strong>：通过画边确定面的位置</li>
+                    <li><strong>公共点法</strong>：通过公共点判断面的方向</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>二、三视图</h2>
+                <ul class="knowledge-list">
+                    <li><strong>主视图</strong>：从前面看</li>
+                    <li><strong>俯视图</strong>：从上面看</li>
+                    <li><strong>左视图</strong>：从左面看</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>三、截面图</h2>
+                <ul class="knowledge-list">
+                    <li><strong>立方体截面</strong>：三角形、四边形、五边形、六边形</li>
+                    <li><strong>圆柱截面</strong>：圆形、矩形、椭圆</li>
+                    <li><strong>圆锥截面</strong>：圆形、三角形、椭圆</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>四、立体拼接</h2>
+                <ul class="knowledge-list">
+                    <li><strong>凹凸匹配</strong>：找出能够互补的部分</li>
+                    <li><strong>数量匹配</strong>：根据小图形数量判断</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 解题技巧</strong><br>空间类题目需要较强的空间想象能力，平时多练习可以有效提升。画边法是空间重构的利器！</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../../js/navbar.js"></script>
+</body>
+</html>

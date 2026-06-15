@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>申论题库 - 公考知识分享平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* 页面顶部导航 */
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a:hover,
+        .page-navbar .nav-links a.active {
+            color: #e74c3c;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-navbar .mobile-menu {
+            display: none;
+        }
+        
+        /* 响应式 - 移动端 */
+        @media (max-width: 768px) {
+            .page-navbar .nav-links {
+                display: none;
+            }
+            
+            .page-navbar .menu-toggle {
+                display: block;
+            }
+            
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .page-navbar .mobile-menu a:hover {
+                background: #f5f7fa;
+                color: #e74c3c;
+            }
+        }
+        
+        /* 页面头部 */
+        .page-header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* 分类卡片 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-top: 4px solid #e74c3c;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .category-card .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .category-card h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .category-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        /* 各板块配色 */
+        .card-why {
+            border-top-color: #3498db;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+        }
+        
+        .card-reading {
+            border-top-color: #e67e22;
+            background: linear-gradient(135deg, #fffef5 0%, #ffffff 100%);
+        }
+        
+        .card-type {
+            border-top-color: #9b59b6;
+            background: linear-gradient(135deg, #faf5ff 0%, #ffffff 100%);
+        }
+        
+        .card-standard {
+            border-top-color: #1abc9c;
+            background: linear-gradient(135deg, #f0fffe 0%, #ffffff 100%);
+        }
+        
+        .card-quote {
+            border-top-color: #e74c3c;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        }
+        
+        .card-person {
+            border-top-color: #27ae60;
+            background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+        }
+        
+        /* 学习提示 */
+        .tip-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff9e6 100%);
+            border-left: 4px solid #ffc107;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #e74c3c;">
+                📝 公考知识库
+            </div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="news.html">新闻联播</a>
+                <a href="xingce.html">行测</a>
+                <a href="shenlun.html" class="active">申论学习</a>
+                <a href="gaopin.html">高频词语</a>
+                <a href="ziliao.html">资料下载</a>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">首页</a>
+            <a href="news.html">新闻联播</a>
+            <a href="xingce.html">行测</a>
+            <a href="shenlun.html">申论学习</a>
+            <a href="gaopin.html">高频词语</a>
+            <a href="ziliao.html">资料下载</a>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+        <!-- 页面头部 -->
+        <section class="page-header">
+            <div class="container">
+                <h1>📝 申论学习</h1>
+                <p>掌握申论写作技巧，提升文字表达能力</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 学习提示 -->
+            <div class="tip-box">
+                <h4>💡 学习建议</h4>
+                <p>申论备考建议按照「理解申论 → 材料阅读 → 题型掌握 → 积累素材」的顺序进行。建议每天练习写一篇小短文，保持写作手感。</p>
+            </div>
+
+            <!-- 分类卡片 -->
+            <div class="category-grid">
+                <div class="category-card card-why" onclick="location.href='shenlun/weishenme.html'">
+                    <div class="icon">❓</div>
+                    <h3>为什么是申论</h3>
+                    <p>了解申论考试的本质、考察重点和评分标准，建立正确的备考方向</p>
+                </div>
+
+                <div class="category-card card-reading" onclick="location.href='shenlun/yuedu.html'">
+                    <div class="icon">📖</div>
+                    <h3>材料阅读技巧</h3>
+                    <p>掌握快速阅读、精准定位、提炼要点的方法，提高阅读效率</p>
+                </div>
+
+                <div class="category-card card-type" onclick="location.href='shenlun/tixing.html'">
+                    <div class="icon">📋</div>
+                    <h3>题型详解</h3>
+                    <p>全面解析归纳概括、综合分析、提出对策、应用文、文章论述等题型</p>
+                </div>
+
+                <div class="category-card card-standard" onclick="location.href='shenlun/guifan.html'">
+                    <div class="icon">📝</div>
+                    <h3>申论规范词</h3>
+                    <p>积累申论常用规范词汇，提升语言表达的专业性和准确性</p>
+                </div>
+
+                <div class="category-card card-quote" onclick="location.href='shenlun/mingyan.html'">
+                    <div class="icon">💬</div>
+                    <h3>名言积累</h3>
+                    <p>收集经典名言警句，为文章增添文采和说服力</p>
+                </div>
+
+                <div class="category-card card-person" onclick="location.href='shenlun/renwu.html'">
+                    <div class="icon">👤</div>
+                    <h3>人物素材</h3>
+                    <p>积累正能量人物事迹，丰富文章内容，增强感染力</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../pages/news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../pages/xingce.html"><span>📊</span><span>行测</span></a></li>
+            <li><a href="../pages/shenlun.html"><span>✍️</span><span>申论</span></a></li>
+            <li><a href="../pages/ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- 移动端菜单控制 -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                menuToggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                menuToggle.innerHTML = '✕';
+            }
+        }
+        
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (menu.style.display === 'block' && 
+                !menu.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                menu.style.display = 'none';
+                menuToggle.innerHTML = '☰';
+            }
+        });
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const menu = document.getElementById('mobileMenu');
+                const menuToggle = document.querySelector('.menu-toggle');
+                menu.style.display = 'none';
+                menuToggle.innerHTML = '☰';
+            }
+        });
+    </script>
+</body>
+</html>

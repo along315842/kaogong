@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物素材 - 申论学习</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #27ae60;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .person-card {
+            background: #f0fff4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .person-card .name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+        
+        .person-card .title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .person-card .story {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .person-card .spirit {
+            background: #e8f5e9;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            color: #1b5e20;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #27ae60;">👤 人物素材</div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links" style="display: flex; gap: 15px;">
+                <a href="../shenlun.html">返回</a>
+                <a href="weishenme.html">为什么申论</a>
+                <a href="yuedu.html">阅读技巧</a>
+                <a href="guifan.html">规范词</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" style="display: none;">
+            <a href="../shenlun.html">返回申论首页</a>
+            <a href="weishenme.html">为什么是申论</a>
+            <a href="yuedu.html">材料阅读技巧</a>
+            <a href="tixing.html">题型详解</a>
+            <a href="guifan.html">申论规范词</a>
+            <a href="mingyan.html">名言积累</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>👤 人物素材</h1>
+                <p>积累正能量人物事迹，丰富文章内容</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="section">
+                <h3>时代楷模</h3>
+                <div class="person-card">
+                    <div class="name">黄文秀</div>
+                    <div class="title">驻村第一书记</div>
+                    <div class="story">黄文秀同志研究生毕业后，放弃大城市的工作机会，毅然回到家乡，在脱贫攻坚第一线倾情投入、奉献自我。她帮助村里发展特色产业，带领群众增收致富，最终将生命献给了脱贫事业。</div>
+                    <div class="spirit">💫 奉献精神、担当精神、为民情怀</div>
+                </div>
+                <div class="person-card">
+                    <div class="name">钟南山</div>
+                    <div class="title">中国工程院院士</div>
+                    <div class="story">在新冠肺炎疫情期间，钟南山院士不顾个人安危，逆行出征，奔赴抗疫一线，为疫情防控作出了巨大贡献。他以精湛的医术和高尚的医德，赢得了全国人民的尊敬。</div>
+                    <div class="spirit">💫 责任担当、科学精神、家国情怀</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>基层干部</h3>
+                <div class="person-card">
+                    <div class="name">李保国</div>
+                    <div class="title">河北农业大学教授</div>
+                    <div class="story">李保国同志35年如一日，扎根太行山区，致力于山区开发和脱贫攻坚事业。他带领群众发展林果产业，帮助10万多贫困群众脱贫致富，被誉为"太行山上的新愚公"。</div>
+                    <div class="spirit">💫 扎根基层、服务群众、艰苦奋斗</div>
+                </div>
+                <div class="person-card">
+                    <div class="name">廖俊波</div>
+                    <div class="title">县委书记</div>
+                    <div class="story">廖俊波同志始终牢记党的嘱托，尽心尽责，带领当地干部群众扑下身子、苦干实干，以实际行动体现了对党忠诚、为民服务、勤政务实、敢于担当、清正廉洁的优秀品质。</div>
+                    <div class="spirit">💫 务实担当、为民服务、清正廉洁</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>英雄模范</h3>
+                <div class="person-card">
+                    <div class="name">张富清</div>
+                    <div class="title">革命老兵</div>
+                    <div class="story">张富清同志在解放战争中多次荣立战功，却在退役后主动选择到偏远地区工作，默默奉献60多年。他始终坚守初心，淡泊名利，用自己的朴实纯粹、淡泊名利书写了精彩人生。</div>
+                    <div class="spirit">💫 淡泊名利、坚守初心、无私奉献</div>
+                </div>
+                <div class="person-card">
+                    <div class="name">王继才</div>
+                    <div class="title">守岛英雄</div>
+                    <div class="story">王继才同志守岛卫国32年，用无怨无悔的坚守和付出，在平凡的岗位上书写了不平凡的人生华章。他将青春年华全部献给了祖国的海防事业。</div>
+                    <div class="spirit">💫 坚守岗位、忠诚担当、爱国奉献</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>科学家</h3>
+                <div class="person-card">
+                    <div class="name">袁隆平</div>
+                    <div class="title">杂交水稻之父</div>
+                    <div class="story">袁隆平院士一生致力于杂交水稻研究，成功培育出高产杂交水稻，为解决中国和世界粮食问题作出了巨大贡献。他的科研精神和爱国情怀激励着一代又一代人。</div>
+                    <div class="spirit">💫 创新精神、奉献精神、家国情怀</div>
+                </div>
+                <div class="person-card">
+                    <div class="name">屠呦呦</div>
+                    <div class="title">诺贝尔医学奖获得者</div>
+                    <div class="story">屠呦呦研究员带领团队发现了青蒿素，开创了治疗疟疾的新方法，挽救了全球特别是发展中国家数百万人的生命。她是第一位获得诺贝尔科学奖项的中国本土科学家。</div>
+                    <div class="spirit">💫 科研精神、团队协作、济世情怀</div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 使用建议</strong><br>
+                在申论写作中，人物素材可以作为论据来支撑论点。使用时要注意：1. 选择与主题相关的人物；2. 简要介绍人物事迹，突出关键信息；3. 分析人物事迹所体现的精神品质；4. 结合文章主题进行论述，说明该人物事迹如何支撑论点。</p>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📊</span><span>行测</span></a></li>
+            <li><a href="../shenlun.html"><span>✍️</span><span>申论</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+</body>
+</html>

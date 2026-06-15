@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料阅读技巧 - 申论学习</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #e67e22;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #e67e22;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #e67e22;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '📖';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .content-box {
+            background: #fffef5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .content-box h4 {
+            color: #d35400;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .content-box p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .step-box {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #e67e22;
+        }
+        
+        .step-box strong {
+            color: #d35400;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #e67e22;">📖 材料阅读</div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links" style="display: flex; gap: 15px;">
+                <a href="../shenlun.html">返回</a>
+                <a href="weishenme.html">为什么申论</a>
+                <a href="tixing.html">题型详解</a>
+                <a href="guifan.html">规范词</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" style="display: none;">
+            <a href="../shenlun.html">返回申论首页</a>
+            <a href="weishenme.html">为什么是申论</a>
+            <a href="tixing.html">题型详解</a>
+            <a href="guifan.html">申论规范词</a>
+            <a href="mingyan.html">名言积累</a>
+            <a href="renwu.html">人物素材</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>📖 材料阅读技巧</h1>
+                <p>掌握高效阅读方法，精准把握材料要点</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="section">
+                <h3>阅读前的准备</h3>
+                <div class="content-box">
+                    <h4>⏱️ 时间分配</h4>
+                    <p>建议用5-10分钟浏览题目，了解作答要求，带着问题去阅读材料。</p>
+                </div>
+                <div class="content-box">
+                    <h4>📋 工具准备</h4>
+                    <p>准备好铅笔和橡皮，随时标记关键词、关键句和重要数据。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>三步阅读法</h3>
+                <div class="step-box">
+                    <strong>第一步：浏览全文（2-3分钟）</strong>
+                    <p>快速浏览材料标题、首尾段，了解材料主题和大致结构。</p>
+                </div>
+                <div class="step-box">
+                    <strong>第二步：精读定位（10-15分钟）</strong>
+                    <p>结合题目要求，逐段精读，标记关键信息，定位答案要点。</p>
+                </div>
+                <div class="step-box">
+                    <strong>第三步：整合提炼（5分钟）</strong>
+                    <p>梳理各部分关系，提炼核心观点，形成答题思路。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>关键信息标记技巧</h3>
+                <ul class="knowledge-list">
+                    <li><strong>圈画关键词</strong>：如"问题"、"原因"、"对策"、"建议"等</li>
+                    <li><strong>标注数据</strong>：注意年份、百分比、数量等关键数据</li>
+                    <li><strong>标记观点</strong>：注意专家、学者、政府官员的观点</li>
+                    <li><strong>划分层次</strong>：用斜线或数字标出段落层次</li>
+                    <li><strong>概括段意</strong>：在段落旁简要标注段落大意</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>不同材料类型的阅读方法</h3>
+                <div class="content-box">
+                    <h4>📊 数据型材料</h4>
+                    <p>重点关注数据反映的趋势、问题和结论，不要被具体数字迷惑。</p>
+                </div>
+                <div class="content-box">
+                    <h4>💬 案例型材料</h4>
+                    <p>从案例中提取启示、经验或教训，注意案例反映的普遍性问题。</p>
+                </div>
+                <div class="content-box">
+                    <h4>📝 观点型材料</h4>
+                    <p>关注权威人士的观点，这些往往是答题的重要依据。</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 实用技巧</strong><br>
+                在阅读过程中，可以采用"首尾句原则"，即重点阅读每段的首句和尾句，这往往包含段落的核心信息。同时，注意材料中的关联词，如"但是"、"然而"、"因此"等，这些词后面往往是关键内容。</p>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📊</span><span>行测</span></a></li>
+            <li><a href="../shenlun.html"><span>✍️</span><span>申论</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+</body>
+</html>

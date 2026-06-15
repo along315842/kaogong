@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>真假推理 - 逻辑判断 - 判断推理</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    
+    <style>
+        body { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; position: fixed; left: 0; top: 0; bottom: 0; overflow-y: auto; z-index: 1000; }
+        .sidebar-header { padding: 20px; background: rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .sidebar-header h2 { font-size: 18px; margin: 0; font-weight: 600; }
+        .sidebar-nav { padding: 15px 0; }
+        .sidebar-nav .nav-item { padding: 0 20px; }
+        .sidebar-nav .nav-item h3 { font-size: 14px; color: #95a5a6; margin: 15px 0 10px; padding-left: 10px; }
+        .sidebar-nav a { display: block; padding: 10px 20px; color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s; border-left: 3px solid transparent; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background: rgba(255,255,255,0.1); border-left-color: #f39c12; color: white; }
+        .main-content { flex: 1; margin-left: 260px; min-height: 100vh; background: #f5f7fa; }
+        .page-header { background: white; padding: 15px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 20px; color: #333; margin: 0; }
+        .page-header .nav-links { display: flex; gap: 20px; }
+        .page-header .nav-links a { color: #666; text-decoration: none; font-size: 14px; }
+        .page-header .nav-links a:hover { color: #f39c12; }
+        .content-area { padding: 30px; }
+        .content-box { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .content-box h2 { color: #2c3e50; font-size: 22px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f39c12; }
+        .content-box h3 { color: #333; font-size: 18px; margin-top: 25px; margin-bottom: 15px; }
+        .content-box p { color: #666; line-height: 1.8; font-size: 15px; }
+        .knowledge-list { list-style: none; padding: 0; }
+        .knowledge-list li { padding: 12px 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #f39c12; color: #555; font-size: 14px; }
+        .tip-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; margin-top: 15px; border-radius: 0 6px 6px 0; }
+        .tip-box p { color: #856404; font-size: 14px; }
+        .menu-toggle { display: none; }
+        @media (max-width: 768px) {
+            .sidebar { width: 220px; transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .menu-toggle { display: block !important; font-size: 24px; cursor: pointer; margin-right: 15px; }
+            .page-header { padding: 15px 20px; }
+            .content-area { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header"><h2>🎨 判断推理</h2></div>
+        <nav class="sidebar-nav">
+            <div class="nav-item"><h3>图形推理</h3>
+                <a href="../tuixing/weizhi.html">位置规律</a>
+                <a href="../tuixing/yangshi.html">样式规律</a>
+                <a href="../tuixing/shuxing.html">属性规律</a>
+                <a href="../tuixing/shuliang.html">数量规律</a>
+                <a href="../tuixing/teshu.html">特殊规律</a>
+                <a href="../tuixing/kongjian.html">空间类</a>
+            </div>
+            <div class="nav-item">
+                <h3>逻辑判断</h3>
+                <a href="fanyihou.html">翻译推理</a>
+                <a href="zhenjia.html" class="active">真假推理</a>
+                <a href="fenxi.html">分析推理</a>
+                <a href="xiaoruo.html">削弱论证</a>
+                <a href="jiaqiang.html">加强论证</a>
+            </div>
+            <div class="nav-item"><h3>类比推理</h3>
+                <a href="../leibi/gainian.html">概念关系</a>
+                <a href="../leibi/yuyi.html">语义关系</a>
+                <a href="../leibi/yufa.html">语法关系</a>
+                <a href="../leibi/duiying.html">对应关系</a>
+            </div>
+            <div class="nav-item"><h3>定义判断</h3>
+                <a href="../dingyi/dandingyi.html">单定义判断</a>
+                <a href="../dingyi/duodingyi.html">多定义判断</a>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div style="display: flex; align-items: center;">
+                <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
+                <h1>🔍 真假推理</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../panduanti.html">返回判断推理</a>
+                <a href="fenxi.html">下一节：分析推理</a>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <div class="content-box">
+                <h2>真假推理概述</h2>
+                <p>真假推理题目中给出若干个命题，其中有真有假，需要根据已知条件判断命题的真假情况。</p>
+                
+                <h3>核心考点</h3>
+                <ul class="knowledge-list">
+                    <li><strong>矛盾关系</strong>：必有一真一假</li>
+                    <li><strong>反对关系</strong>：至少一假/至少一真</li>
+                    <li><strong>包容关系</strong>：一真前假，一假后真</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>一、矛盾关系</h2>
+                <ul class="knowledge-list">
+                    <li><strong>A与¬A</strong>：直言命题的矛盾</li>
+                    <li><strong>所有A是B与有的A不是B</strong></li>
+                    <li><strong>所有A不是B与有的A是B</strong></li>
+                    <li><strong>A→B与A且¬B</strong></li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>二、反对关系</h2>
+                <ul class="knowledge-list">
+                    <li><strong>上反对</strong>：所有A是B与所有A不是B（至少一假）</li>
+                    <li><strong>下反对</strong>：有的A是B与有的A不是B（至少一真）</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>三、包容关系</h2>
+                <ul class="knowledge-list">
+                    <li><strong>所有→某个→有的</strong></li>
+                    <li><strong>如果只有一真，则前面的命题为假</strong></li>
+                    <li><strong>如果只有一假，则后面的命题为真</strong></li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 解题技巧</strong><br>找矛盾，看其余。先找出矛盾关系的命题，再判断其他命题的真假。</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../../js/navbar.js"></script>
+</body>
+</html>

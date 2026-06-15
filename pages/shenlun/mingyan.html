@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名言积累 - 申论学习</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .quote-box {
+            background: #fff5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .quote-box .quote {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .quote-box .author {
+            text-align: right;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .category-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .category-box h4 {
+            color: #c62828;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #e74c3c;">💬 名言积累</div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links" style="display: flex; gap: 15px;">
+                <a href="../shenlun.html">返回</a>
+                <a href="weishenme.html">为什么申论</a>
+                <a href="yuedu.html">阅读技巧</a>
+                <a href="guifan.html">规范词</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" style="display: none;">
+            <a href="../shenlun.html">返回申论首页</a>
+            <a href="weishenme.html">为什么是申论</a>
+            <a href="yuedu.html">材料阅读技巧</a>
+            <a href="tixing.html">题型详解</a>
+            <a href="guifan.html">申论规范词</a>
+            <a href="renwu.html">人物素材</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>💬 名言积累</h1>
+                <p>收集经典名言，为文章增添文采</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="section">
+                <h3>治国理政类</h3>
+                <div class="quote-box">
+                    <div class="quote">"国无常强，无常弱。奉法者强则国强，奉法者弱则国弱。"</div>
+                    <div class="author">——《韩非子·有度》</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"民为邦本，本固邦宁。"</div>
+                    <div class="author">——《尚书·五子之歌》</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"当官之法，惟有三事：曰清、曰慎、曰勤。"</div>
+                    <div class="author">——吕本中</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>为民服务类</h3>
+                <div class="quote-box">
+                    <div class="quote">"些小吾曹州县吏，一枝一叶总关情。"</div>
+                    <div class="author">——郑板桥</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"衙斋卧听萧萧竹，疑是民间疾苦声。"</div>
+                    <div class="author">——郑板桥</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"乐民之乐者，民亦乐其乐；忧民之忧者，民亦忧其忧。"</div>
+                    <div class="author">——《孟子·梁惠王下》</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>责任担当类</h3>
+                <div class="quote-box">
+                    <div class="quote">"天下兴亡，匹夫有责。"</div>
+                    <div class="author">——顾炎武</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"士不可以不弘毅，任重而道远。"</div>
+                    <div class="author">——《论语·泰伯》</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"苟利国家生死以，岂因祸福避趋之。"</div>
+                    <div class="author">——林则徐</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>实干奋斗类</h3>
+                <div class="quote-box">
+                    <div class="quote">"空谈误国，实干兴邦。"</div>
+                    <div class="author">——顾炎武</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"纸上得来终觉浅，绝知此事要躬行。"</div>
+                    <div class="author">——陆游</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"功崇惟志，业广惟勤。"</div>
+                    <div class="author">——《尚书·周官》</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>创新发展类</h3>
+                <div class="quote-box">
+                    <div class="quote">"周虽旧邦，其命维新。"</div>
+                    <div class="author">——《诗经·大雅·文王》</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"不日新者必日退。"</div>
+                    <div class="author">——程颢、程颐</div>
+                </div>
+                <div class="quote-box">
+                    <div class="quote">"创新是引领发展的第一动力。"</div>
+                    <div class="author">——习近平</div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 使用技巧</strong><br>
+                名言警句可以用于文章的开头、结尾或论证部分，起到画龙点睛的作用。使用时要注意：1. 名言要与文章主题相关；2. 引用要准确无误；3. 不要过度引用，一篇文章引用2-3处为宜；4. 引用后要结合文章内容进行阐述，不要只引用不分析。</p>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📊</span><span>行测</span></a></li>
+            <li><a href="../shenlun.html"><span>✍️</span><span>申论</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+</body>
+</html>

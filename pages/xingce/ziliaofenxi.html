@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料分析 - 行测题库</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #4a90e2;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '📊';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .example-box {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .example-box .question {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .example-box .answer {
+            background: #e8f4fc;
+            padding: 15px;
+            border-radius: 6px;
+            color: #2c5282;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .sub-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .sub-nav a {
+            padding: 8px 16px;
+            background: #f0f7ff;
+            color: #4a90e2;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .sub-nav a:hover {
+            background: #4a90e2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>📊 资料分析</h1>
+                <p>掌握数据处理技巧，提升资料分析能力</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="sub-nav">
+                <a href="#basic">基础概念</a>
+                <a href="#formula">核心公式</a>
+                <a href="#example">例题解析</a>
+                <a href="#skill">解题技巧</a>
+            </div>
+
+            <div id="basic" class="section">
+                <h3>基础概念</h3>
+                <ul class="knowledge-list">
+                    <li>同比增长：与上一年同一时期相比的增长</li>
+                    <li>环比增长：与相邻的上一个统计周期相比的增长</li>
+                    <li>增长率：增长的百分比，增长率 = (现期-基期)/基期 × 100%</li>
+                    <li>比重：部分占总体的比例，比重 = 部分/总体 × 100%</li>
+                    <li>平均数：一组数据的平均值</li>
+                    <li>倍数：一个数是另一个数的几倍</li>
+                </ul>
+            </div>
+
+            <div id="formula" class="section">
+                <h3>核心公式</h3>
+                <div class="example-box">
+                    <h4>📈 增长率相关公式</h4>
+                    <p class="question">
+                        1. 增长率 = (现期量 - 基期量) / 基期量 × 100%<br>
+                        2. 现期量 = 基期量 × (1 + 增长率)<br>
+                        3. 基期量 = 现期量 / (1 + 增长率)<br>
+                        4. 隔年增长率 = r1 + r2 + r1×r2
+                    </p>
+                </div>
+                <div class="example-box">
+                    <h4>📊 比重相关公式</h4>
+                    <p class="question">
+                        1. 比重 = 部分量 / 总体量 × 100%<br>
+                        2. 部分量 = 总体量 × 比重<br>
+                        3. 总体量 = 部分量 / 比重<br>
+                        4. 比重变化量 = (部分量/总体量) × (部分增长率-总体增长率)/(1+部分增长率)
+                    </p>
+                </div>
+            </div>
+
+            <div id="example" class="section">
+                <h3>例题解析</h3>
+                <div class="example-box">
+                    <h4>例题：增长率计算</h4>
+                    <p class="question">
+                        2023年某地区GDP为5000亿元，2024年增长到6000亿元。问：2024年该地区GDP增长率为多少？
+                    </p>
+                    <div class="answer">
+                        解答：增长率 = (6000 - 5000) / 5000 × 100% = 1000 / 5000 × 100% = 20%<br>
+                        <strong>答案：20%</strong>
+                    </div>
+                </div>
+                <div class="example-box">
+                    <h4>例题：比重计算</h4>
+                    <p class="question">
+                        某公司总销售额为1000万元，其中A产品销售额为350万元。问：A产品销售额占总销售额的比重是多少？
+                    </p>
+                    <div class="answer">
+                        解答：比重 = 350 / 1000 × 100% = 35%<br>
+                        <strong>答案：35%</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div id="skill" class="section">
+                <h3>解题技巧</h3>
+                <div class="tip-box">
+                    <p><strong>💡 技巧一：估算优先</strong><br>
+                    资料分析数据通常较大，不必精确计算，合理估算可节省时间。</p>
+                </div>
+                <div class="tip-box">
+                    <p><strong>💡 技巧二：看选项差距</strong><br>
+                    选项差距大时可大胆估算，差距小时需精确计算。</p>
+                </div>
+                <div class="tip-box">
+                    <p><strong>💡 技巧三：先看问题再找数据</strong><br>
+                    带着问题阅读材料，避免盲目查找浪费时间。</p>
+                </div>
+                <div class="tip-box">
+                    <p><strong>💡 技巧四：熟悉常见陷阱</strong><br>
+                    注意时间陷阱、单位陷阱、概念陷阱等。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📝</span><span>行测</span></a></li>
+            <li><a href="../gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+    
+    <!-- 引入公共导航栏组件 -->
+    <script src="../../js/navbar.js"></script>
+</body>
+</html>

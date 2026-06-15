@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>言语理解 - 行测题库</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '📖';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .example-box {
+            background: #fef5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .example-box .question {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .example-box .answer {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 6px;
+            color: #c62828;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .sub-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .sub-nav a {
+            padding: 8px 16px;
+            background: #fef5f5;
+            color: #e74c3c;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .sub-nav a:hover {
+            background: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>📖 言语理解</h1>
+                <p>提升语言理解与表达能力，掌握解题技巧</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="sub-nav">
+                <a href="#reading">阅读理解</a>
+                <a href="#fill">逻辑填空</a>
+                <a href="#sentence">语句表达</a>
+                <a href="#skill">解题技巧</a>
+            </div>
+
+            <div id="reading" class="section">
+                <h3>阅读理解</h3>
+                <ul class="knowledge-list">
+                    <li>主旨概括：找出文段中心思想</li>
+                    <li>意图推断：推断作者的意图和目的</li>
+                    <li>细节理解：准确理解文段细节信息</li>
+                    <li>态度观点：判断作者的态度和观点</li>
+                    <li>标题选择：选择最合适的标题</li>
+                </ul>
+            </div>
+
+            <div id="fill" class="section">
+                <h3>逻辑填空</h3>
+                <ul class="knowledge-list">
+                    <li>实词辨析：区分近义词的细微差别</li>
+                    <li>成语辨析：理解成语含义和用法</li>
+                    <li>关联词：掌握常见关联词的搭配</li>
+                    <li>语境分析：结合上下文选择合适词语</li>
+                    <li>固定搭配：熟悉常见的词语搭配</li>
+                </ul>
+            </div>
+
+            <div id="sentence" class="section">
+                <h3>语句表达</h3>
+                <ul class="knowledge-list">
+                    <li>语句排序：将打乱的句子重新排列</li>
+                    <li>语句填空：选择合适的句子填入空缺处</li>
+                    <li>病句辨析：识别并修改病句</li>
+                    <li>歧义句辨析：找出有歧义的句子</li>
+                </ul>
+            </div>
+
+            <div id="skill" class="section">
+                <h3>例题解析</h3>
+                <div class="example-box">
+                    <h4>例题：主旨概括</h4>
+                    <p class="question">
+                        生态文明是人类遵循自然、社会和人的和谐发展的客观规律而取得的物质与精神成果的总和，其实质是人与自然、人与社会及人与人和谐共生、良性循环、全面发展和持续繁荣。这段文字的主旨是：
+                    </p>
+                    <div class="answer">
+                        <strong>答案：生态文明的内涵</strong><br>
+                        解析：文段第一句定义了生态文明，第二句说明其实质，核心是阐述生态文明的概念和内涵。
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <p><strong>💡 技巧：关注首尾句</strong><br>
+                    主旨概括题中，文段的首尾句往往包含主旨信息，优先关注。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📝</span><span>行测</span></a></li>
+            <li><a href="../gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+    
+    <!-- 引入公共导航栏组件 -->
+    <script src="../../js/navbar.js"></script>
+</body>
+</html>

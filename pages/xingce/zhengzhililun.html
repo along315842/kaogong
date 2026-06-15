@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>政治理论 - 行测题库</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #9b59b6;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #9b59b6;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #9b59b6;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '👑';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .example-box {
+            background: #faf5ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .example-box .question {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .example-box .answer {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 6px;
+            color: #6a1b9a;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .sub-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .sub-nav a {
+            padding: 8px 16px;
+            background: #faf5ff;
+            color: #9b59b6;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .sub-nav a:hover {
+            background: #9b59b6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>👑 政治理论</h1>
+                <p>学习马克思主义理论，掌握政治基础知识</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="sub-nav">
+                <a href="#marx">马克思主义</a>
+                <a href="#mao">毛泽东思想</a>
+                <a href="#socialism">中国特色社会主义</a>
+                <a href="#xi">习近平新时代</a>
+            </div>
+
+            <div id="marx" class="section">
+                <h3>马克思主义基本原理</h3>
+                <ul class="knowledge-list">
+                    <li>唯物论：物质决定意识，意识反作用于物质</li>
+                    <li>辩证法：对立统一、质量互变、否定之否定</li>
+                    <li>认识论：实践是认识的来源和检验标准</li>
+                    <li>历史唯物主义：社会存在决定社会意识</li>
+                    <li>剩余价值理论：资本主义剥削的秘密</li>
+                </ul>
+            </div>
+
+            <div id="mao" class="section">
+                <h3>毛泽东思想</h3>
+                <ul class="knowledge-list">
+                    <li>新民主主义革命理论：农村包围城市、武装夺取政权</li>
+                    <li>社会主义改造理论：对农业、手工业、资本主义工商业的改造</li>
+                    <li>社会主义建设理论：正确处理人民内部矛盾</li>
+                    <li>党的建设理论：三大作风、两个务必</li>
+                </ul>
+            </div>
+
+            <div id="socialism" class="section">
+                <h3>中国特色社会主义理论体系</h3>
+                <ul class="knowledge-list">
+                    <li>邓小平理论：改革开放、社会主义初级阶段</li>
+                    <li>"三个代表"重要思想：代表先进生产力、先进文化、最广大人民利益</li>
+                    <li>科学发展观：以人为本、全面协调可持续</li>
+                    <li>社会主义核心价值观：富强、民主、文明、和谐等</li>
+                </ul>
+            </div>
+
+            <div id="xi" class="section">
+                <h3>习近平新时代中国特色社会主义思想</h3>
+                <ul class="knowledge-list">
+                    <li>新时代社会主要矛盾：人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾</li>
+                    <li>中国梦：实现中华民族伟大复兴</li>
+                    <li>四个全面：全面建设社会主义现代化国家、全面深化改革、全面依法治国、全面从严治党</li>
+                    <li>新发展理念：创新、协调、绿色、开放、共享</li>
+                    <li>一带一路：丝绸之路经济带和21世纪海上丝绸之路</li>
+                </ul>
+                <div class="tip-box">
+                    <p><strong>💡 学习方法：理解记忆</strong><br>
+                    政治理论知识点较多，建议在理解的基础上记忆，结合时政热点加深理解。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📝</span><span>行测</span></a></li>
+            <li><a href="../gaopin.html"><span>💪</span><span>词语</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+    
+    <!-- 引入公共导航栏组件 -->
+    <script src="../../js/navbar.js"></script>
+</body>
+</html>

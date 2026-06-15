@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位置规律 - 图形推理 - 判断推理</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .sidebar-nav {
+            padding: 15px 0;
+        }
+        
+        .sidebar-nav .nav-item {
+            padding: 0 20px;
+        }
+        
+        .sidebar-nav .nav-item h3 {
+            font-size: 14px;
+            color: #95a5a6;
+            margin: 15px 0 10px;
+            padding-left: 10px;
+        }
+        
+        .sidebar-nav a {
+            display: block;
+            padding: 10px 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: rgba(255,255,255,0.1);
+            border-left-color: #f39c12;
+            color: white;
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            min-height: 100vh;
+            background: #f5f7fa;
+        }
+        
+        .page-header {
+            background: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .page-header h1 {
+            font-size: 20px;
+            color: #333;
+            margin: 0;
+        }
+        
+        .page-header .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .page-header .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .page-header .nav-links a:hover {
+            color: #f39c12;
+        }
+        
+        .content-area {
+            padding: 30px;
+        }
+        
+        .content-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .content-box h2 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f39c12;
+        }
+        
+        .content-box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .content-box p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #f39c12;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .example-box {
+            background: #fffef5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .example-box h4 {
+            color: #d35400;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .example-box .question {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .example-box .answer {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 6px;
+            color: #8d6e63;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 220px;
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .menu-toggle {
+                display: block !important;
+                font-size: 24px;
+                cursor: pointer;
+                margin-right: 15px;
+            }
+            
+            .page-header {
+                padding: 15px 20px;
+            }
+            
+            .content-area {
+                padding: 20px;
+            }
+        }
+        
+        .menu-toggle {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>🎨 判断推理</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-item">
+                <h3>图形推理</h3>
+                <a href="weizhi.html" class="active">位置规律</a>
+                <a href="yangshi.html">样式规律</a>
+                <a href="shuxing.html">属性规律</a>
+                <a href="shuliang.html">数量规律</a>
+                <a href="teshu.html">特殊规律</a>
+                <a href="kongjian.html">空间类</a>
+            </div>
+            <div class="nav-item">
+                <h3>逻辑判断</h3>
+                <a href="../luoji/fanyihou.html">翻译推理</a>
+                <a href="../luoji/zhenjia.html">真假推理</a>
+                <a href="../luoji/fenxi.html">分析推理</a>
+                <a href="../luoji/xiaoruo.html">削弱论证</a>
+                <a href="../luoji/jiaqiang.html">加强论证</a>
+            </div>
+            <div class="nav-item">
+                <h3>类比推理</h3>
+                <a href="../leibi/gainian.html">概念关系</a>
+                <a href="../leibi/yuyi.html">语义关系</a>
+                <a href="../leibi/yufa.html">语法关系</a>
+                <a href="../leibi/duiying.html">对应关系</a>
+            </div>
+            <div class="nav-item">
+                <h3>定义判断</h3>
+                <a href="../dingyi/dandingyi.html">单定义判断</a>
+                <a href="../dingyi/duodingyi.html">多定义判断</a>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div style="display: flex; align-items: center;">
+                <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
+                <h1>📐 位置规律</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../panduanti.html">返回判断推理</a>
+                <a href="yangshi.html">下一节：样式规律</a>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <div class="content-box">
+                <h2>位置规律概述</h2>
+                <p>位置规律是图形推理中最基础也是最重要的规律之一。这类题目通常要求考生观察图形中元素的位置变化，找出其中的规律。</p>
+                
+                <h3>核心考点</h3>
+                <ul class="knowledge-list">
+                    <li><strong>平移</strong>：图形元素在平面内沿直线或曲线移动</li>
+                    <li><strong>旋转</strong>：图形元素围绕某一点旋转一定角度</li>
+                    <li><strong>翻转</strong>：图形元素沿某条对称轴翻转</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>一、平移</h2>
+                <p>平移是指图形中的元素按照一定的规律移动，常见的移动方向包括：上下、左右、对角线、顺时针、逆时针等。</p>
+                
+                <h3>常见类型</h3>
+                <ul class="knowledge-list">
+                    <li><strong>水平平移</strong>：元素在水平方向上左右移动</li>
+                    <li><strong>垂直平移</strong>：元素在垂直方向上上下移动</li>
+                    <li><strong>对角线平移</strong>：元素沿对角线方向移动</li>
+                    <li><strong>循环平移</strong>：元素移动到边界后重新开始</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>例题：</h4>
+                    <p class="question">从所给的四个选项中，选择最合适的一个填入问号处，使之呈现一定的规律性：<br><br>
+                    □ → ■ → □ → ?<br><br>
+                    A. ■ B. □ C. ▲ D. ●</p>
+                    <div class="answer">
+                        <strong>答案：A</strong><br>
+                        解析：这是一个简单的交替平移规律，方块和黑方块交替出现，所以问号处应该是黑方块。
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <h2>二、旋转</h2>
+                <p>旋转是指图形中的元素围绕一个固定点按照一定的角度转动。</p>
+                
+                <h3>常见类型</h3>
+                <ul class="knowledge-list">
+                    <li><strong>顺时针旋转</strong>：元素按照顺时针方向旋转</li>
+                    <li><strong>逆时针旋转</strong>：元素按照逆时针方向旋转</li>
+                    <li><strong>固定角度旋转</strong>：每次旋转固定的角度（如45°、90°、180°等）</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2>三、翻转</h2>
+                <p>翻转是指图形沿某条对称轴进行翻转，类似于照镜子。</p>
+                
+                <h3>常见类型</h3>
+                <ul class="knowledge-list">
+                    <li><strong>水平翻转</strong>：沿水平轴翻转</li>
+                    <li><strong>垂直翻转</strong>：沿垂直轴翻转</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 解题技巧</strong><br>
+                1. 观察图形元素是否有位置变化<br>
+                2. 判断变化类型（平移、旋转、翻转）<br>
+                3. 确定变化规律（方向、角度、步数）<br>
+                4. 验证规律是否适用于所有图形</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(event.target) &&
+                !event.target.classList.contains('menu-toggle')) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+    </script>
+    
+    <!-- 引入公共导航栏组件 -->
+    <script src="../../../js/navbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为什么是申论 - 申论学习</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a.active,
+        .page-navbar .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .page-navbar .nav-links { display: none; }
+            .page-navbar .menu-toggle { display: block; }
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: #3498db;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li:before {
+            content: '❓';
+            position: absolute;
+            left: 0;
+        }
+        
+        .knowledge-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .content-box {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .content-box h4 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .content-box p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            background: #e8f4fc;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2c5282;
+            font-weight: 500;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box p {
+            color: #856404;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #3498db;">❓ 为什么是申论</div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links" style="display: flex; gap: 15px;">
+                <a href="../shenlun.html">返回</a>
+                <a href="yuedu.html">阅读技巧</a>
+                <a href="tixing.html">题型详解</a>
+                <a href="guifan.html">规范词</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" style="display: none;">
+            <a href="../shenlun.html">返回申论首页</a>
+            <a href="yuedu.html">材料阅读技巧</a>
+            <a href="tixing.html">题型详解</a>
+            <a href="guifan.html">申论规范词</a>
+            <a href="mingyan.html">名言积累</a>
+            <a href="renwu.html">人物素材</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>❓ 为什么是申论</h1>
+                <p>理解申论考试的本质与意义</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="section">
+                <h3>申论是什么</h3>
+                <div class="content-box">
+                    <p><strong>申论</strong>是公务员考试中的重要科目，旨在考察考生的阅读理解能力、综合分析能力、提出和解决问题能力、文字表达能力。</p>
+                    <p>申论考试通常由给定材料和作答要求两部分组成，考生需要根据材料内容，按照题目要求进行作答。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>申论考察什么能力</h3>
+                <ul class="knowledge-list">
+                    <li><strong>阅读理解能力</strong>：准确理解材料内容，把握主旨和细节</li>
+                    <li><strong>综合分析能力</strong>：对材料进行分析、归纳、推理和判断</li>
+                    <li><strong>提出和解决问题能力</strong>：发现问题并提出切实可行的解决方案</li>
+                    <li><strong>贯彻执行能力</strong>：能够准确理解工作目标和组织意图</li>
+                    <li><strong>文字表达能力</strong>：运用规范的语言进行书面表达</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>申论的重要性</h3>
+                <div class="content-box">
+                    <h4>📊 分值占比高</h4>
+                    <p>申论通常占笔试总成绩的50%，是决定考试成败的关键科目。</p>
+                </div>
+                <div class="content-box">
+                    <h4>💼 能力实用性强</h4>
+                    <p>申论考察的能力与公务员日常工作紧密相关，是成为合格公务员的必备技能。</p>
+                </div>
+                <div class="content-box">
+                    <h4>🏆 拉开差距的关键</h4>
+                    <p>行测分数相对集中，而申论成绩差距较大，是拉开总分差距的关键。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>申论评分标准</h3>
+                <div class="highlight">
+                    <strong>一类文（40-50分）</strong>：立意深刻、结构完整、语言流畅、内容充实
+                </div>
+                <div class="highlight">
+                    <strong>二类文（30-39分）</strong>：立意明确、结构较完整、语言通顺、内容较充实
+                </div>
+                <div class="highlight">
+                    <strong>三类文（20-29分）</strong>：立意基本明确、结构基本完整、语言基本通顺
+                </div>
+                <div class="highlight">
+                    <strong>四类文（0-19分）</strong>：立意不明、结构混乱、语言不通
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 备考要点</strong><br>
+                申论备考需要长期积累，建议每天阅读时政新闻，积累规范词汇，坚持练习写作，形成自己的答题思路和写作风格。</p>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="../../index.html"><span>🏠</span><span>首页</span></a></li>
+            <li><a href="../news.html"><span>📺</span><span>新闻</span></a></li>
+            <li><a href="../xingce.html"><span>📊</span><span>行测</span></a></li>
+            <li><a href="../shenlun.html"><span>✍️</span><span>申论</span></a></li>
+            <li><a href="../ziliao.html"><span>📥</span><span>资料</span></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                toggle.innerHTML = '✕';
+            }
+        }
+    </script>
+</body>
+</html>
