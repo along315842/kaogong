@@ -43,7 +43,16 @@
             
             <!-- 移动端菜单按钮 -->
             <!-- onclick事件: 点击时调用某个JavaScript函数 -->
-            <div class="menu-toggle" onclick="alert('移动端菜单')">☰</div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            
+            <!-- 移动端下拉菜单 -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html" onclick="closeMobileMenu()">首页</a>
+                <a href="pages/news.html" onclick="closeMobileMenu()">新闻联播</a>
+                <a href="pages/chengyu.html" onclick="closeMobileMenu()">成语查询</a>
+                <a href="pages/gaopin.html" onclick="closeMobileMenu()">高频词语</a>
+                <a href="pages/ziliao.html" onclick="closeMobileMenu()">资料下载</a>
+            </div>
         </div>
     </nav>
 
@@ -404,6 +413,56 @@
 
         // 页面加载完成后渲染新闻列表
         document.addEventListener('DOMContentLoaded', renderHomeNews);
+    </script>
+
+    <!-- 移动端菜单控制脚本 -->
+    <script>
+        /**
+         * 切换移动端菜单的显示/隐藏
+         */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                menuToggle.innerHTML = '☰';  // 汉堡图标
+            } else {
+                menu.style.display = 'block';
+                menuToggle.innerHTML = '✕';  // 关闭图标
+            }
+        }
+
+        /**
+         * 关闭移动端菜单
+         */
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            menu.style.display = 'none';
+            menuToggle.innerHTML = '☰';  // 汉堡图标
+        }
+
+        // 点击菜单外部区域关闭菜单
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            // 如果菜单正在显示，且点击的不是菜单和菜单按钮，则关闭菜单
+            if (menu.style.display === 'block' && 
+                !menu.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // 窗口大小改变时，如果是大屏幕则关闭移动端菜单
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
     </script>
 </body>
 </html>

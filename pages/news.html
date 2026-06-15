@@ -6,6 +6,74 @@
     <title>新闻联播 - 公考知识分享平台</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
+        /* 页面顶部导航 */
+        .page-navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .page-navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .page-navbar .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .page-navbar .nav-links a:hover,
+        .page-navbar .nav-links a.active {
+            color: #667eea;
+        }
+        
+        .page-navbar .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-navbar .mobile-menu {
+            display: none;
+        }
+        
+        /* 响应式 - 移动端 */
+        @media (max-width: 768px) {
+            .page-navbar .nav-links {
+                display: none;
+            }
+            
+            .page-navbar .menu-toggle {
+                display: block;
+            }
+            
+            .page-navbar .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+            }
+            
+            .page-navbar .mobile-menu a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .page-navbar .mobile-menu a:hover {
+                background: #f5f7fa;
+                color: #667eea;
+            }
+        }
         /* 新闻联播页面样式 */
         .news-container {
             max-width: 900px;
@@ -225,6 +293,30 @@
     </style>
 </head>
 <body>
+    <!-- 顶部导航栏 -->
+    <nav class="page-navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+            <div class="logo" style="font-size: 18px; font-weight: bold; color: #667eea;">
+                📚 公考知识库
+            </div>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="news.html" class="active">新闻联播</a>
+                <a href="chengyu.html">成语查询</a>
+                <a href="gaopin.html">高频词语</a>
+                <a href="ziliao.html">资料下载</a>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">首页</a>
+            <a href="news.html">新闻联播</a>
+            <a href="chengyu.html">成语查询</a>
+            <a href="gaopin.html">高频词语</a>
+            <a href="ziliao.html">资料下载</a>
+        </div>
+    </nav>
     <!-- 顶部导航栏 - 与首页一致 -->
     <nav class="navbar">
         <div class="container">
@@ -401,6 +493,45 @@
             currentNewsDate = selectedDate;
             renderNews();
         }
+    </script>
+    
+    <!-- 移动端菜单控制 -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                menuToggle.innerHTML = '☰';
+            } else {
+                menu.style.display = 'block';
+                menuToggle.innerHTML = '✕';
+            }
+        }
+        
+        // 点击外部关闭菜单
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (menu.style.display === 'block' && 
+                !menu.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                menu.style.display = 'none';
+                menuToggle.innerHTML = '☰';
+            }
+        });
+        
+        // 窗口大小改变时关闭菜单
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const menu = document.getElementById('mobileMenu');
+                const menuToggle = document.querySelector('.menu-toggle');
+                menu.style.display = 'none';
+                menuToggle.innerHTML = '☰';
+            }
+        });
     </script>
 </body>
 </html>
