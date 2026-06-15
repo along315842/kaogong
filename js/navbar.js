@@ -10,22 +10,28 @@
 // 获取当前页面的目录深度
 function getPathDepth() {
     const path = window.location.pathname;
-    // 计算路径中有多少个斜杠（排除根目录的斜杠）
-    const depth = path.split('/').filter(p => p && !p.includes('.html')).length;
-    return depth;
+    // 调试信息
+    console.log('[Navbar] 当前路径:', path);
+    
+    // 计算路径中有多少个目录层级（排除文件名）
+    const parts = path.split('/').filter(p => p && !p.includes('.html'));
+    console.log('[Navbar] 目录层级:', parts, '深度:', parts.length);
+    
+    return parts.length;
 }
 
 // 根据目录深度生成相对路径前缀
 function getBasePath() {
     const depth = getPathDepth();
-    // depth 为 0 表示在根目录，depth 为 1 表示在 pages/ 或其他一级目录
-    // depth 为 2 表示在二级目录如 pages/xingce/
-    // depth 为 3 表示在三级目录如 pages/xingce/tuixing/
-    if (depth <= 1) {
-        return ''; // 根目录页面
-    } else {
-        return '../'.repeat(depth - 1);
-    }
+    // 需要返回的路径前缀：
+    // depth=0: '' → index.html
+    // depth=1: '../' → ../index.html
+    // depth=2: '../../' → ../../index.html
+    // depth=3: '../../../' → ../../../index.html
+    const prefix = '../'.repeat(depth);
+    console.log('[Navbar] 生成的路径前缀:', prefix);
+    
+    return prefix;
 }
 
 const basePath = getBasePath();
