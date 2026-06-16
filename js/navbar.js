@@ -1,5 +1,5 @@
 /**
- * 公考知识库 - 公共导航栏组件
+ * 公考知识库 - 公共导航栏组件 v1.2
  * 
  * 功能：所有子页面统一引用此文件，自动显示顶部导航栏
  * 使用方法：在HTML文件的 </body> 标签前添加 <script src="js/navbar.js"></script>
@@ -11,11 +11,11 @@
 function getPathDepth() {
     const path = window.location.pathname;
     // 调试信息
-    console.log('[Navbar] 当前路径:', path);
+    console.log('[Navbar v1.2] 当前路径:', path);
     
     // 计算路径中有多少个目录层级（排除文件名）
     const parts = path.split('/').filter(p => p && !p.includes('.html'));
-    console.log('[Navbar] 目录层级:', parts, '深度:', parts.length);
+    console.log('[Navbar v1.2] 目录层级:', parts, '深度:', parts.length);
     
     return parts.length;
 }
@@ -29,7 +29,7 @@ function getBasePath() {
     // depth=2: '../../' → ../../index.html
     // depth=3: '../../../' → ../../../index.html
     const prefix = '../'.repeat(depth);
-    console.log('[Navbar] 生成的路径前缀:', prefix);
+    console.log('[Navbar v1.2] 生成的路径前缀:', prefix);
     
     return prefix;
 }
